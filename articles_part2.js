@@ -1,7 +1,7 @@
-module.exports = [
+﻿module.exports = [
   {
     filename: 'watch-football-iptv-europe.html',
-    title: 'Watch Premier League, La Liga & Champions League via IPTV in Europe | StreamEU Pro',
+    title: 'Watch Premier League, La Liga & Champions League via IPTV in Europe | IPTV Mate',
     metaDesc: 'Never miss a match. Find out which IPTV sports channels Europe fans use to watch the Premier League, La Liga, and Champions League buffer-free.',
     category: 'Sports',
     date: 'Oct 28, 2025',
@@ -43,7 +43,7 @@ module.exports = [
   },
   {
     filename: 'anti-freeze-iptv-explained.html',
-    title: 'What is Anti-Freeze IPTV? How It Eliminates Buffering Forever | StreamEU Pro',
+    title: 'What is Anti-Freeze IPTV? How It Eliminates Buffering Forever | IPTV Mate',
     metaDesc: 'Discover what causes IPTV buffering in Europe and how premium anti-freeze IPTV providers use advanced CDNs to eliminate freezing during peak hours.',
     category: 'Tips & Tricks',
     date: 'Nov 02, 2025',

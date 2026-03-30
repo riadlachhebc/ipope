@@ -1,4 +1,4 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 
 const dir = './';
@@ -10,10 +10,10 @@ files.forEach(file => {
   let original = content;
 
   // Replace fully qualified URLs
-  content = content.replace(/https:\/\/streameu\.pro/g, 'https://yourdomain.com');
+  content = content.replace(/https:\/\/IPTV Mate\.pro/g, 'https://iptv-mate.net');
   
   // Replace email addresses just in case they exist in legal pages
-  content = content.replace(/@streameu\.pro/g, '@yourdomain.com');
+  content = content.replace(/@IPTV Mate\.pro/g, '@iptv-mate.net');
 
   if (content !== original) {
     fs.writeFileSync(filePath, content);

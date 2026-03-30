@@ -1,4 +1,4 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 
 const target = path.join(__dirname, 'index.html');
@@ -9,7 +9,7 @@ html = html.replace(
   /<title>.*?<\/title>\s*<meta name="description" content=".*?" \/>\s*<meta name="keywords" content=".*?" \/>\s*<meta name="author" content=".*?" \/>\s*<meta name="robots" content=".*?" \/>\s*<link rel="canonical" href=".*?" \/>/s,
   `<title>Best IPTV Subscriptions in Europe — 20,000+ Channels, 4K Streaming</title>
   <meta name='description' content='Get the best IPTV subscriptions in Europe. 20,000+ channels, 4K streaming, anti-freeze technology & free trial. Works on Firestick, Smart TV, Android & more.'>
-  <link rel='canonical' href='https://yourdomain.com/'>`
+  <link rel='canonical' href='https://iptv-mate.net/'>`
 );
 
 // 2. FAQ Schema
@@ -57,7 +57,7 @@ html = html.replace(
 
 // 7. Devices
 html = html.replace(
-  /<h2 id="devicesHeading">Compatible with Firestick, Smart TV &amp; More<\/h2>\s*<p>One subscription — every screen\. Set up StreamEU Pro on any device you own in minutes\.<\/p>/s,
+  /<h2 id="devicesHeading">Compatible with Firestick, Smart TV &amp; More<\/h2>\s*<p>One subscription — every screen\. Set up IPTV Mate on any device you own in minutes\.<\/p>/s,
   `<h2 id="devicesHeading">Compatible With All Your Devices</h2>
       <p>Flexibility and ease of use are at the very core of our service. You can watch your favorite content anytime, anywhere, on virtually any screen you own.</p>
       <p style="margin-top:var(--sp-12);">Setting up our service is incredibly simple, particularly if you are looking for the best IPTV for Firestick. Within just a few minutes, you can load our dedicated application or utilize popular third-party players like TiviMate, IPTV Smarters Pro, or XCIPTV. Beyond Amazon devices, our service integrates seamlessly with Samsung (Tizen) and LG (WebOS) Smart TVs, Android TV boxes, MAG boxes, Apple TV, iOS smartphones, tablets, and desktop computers. You simply provide the device and an internet connection; we will provide the world-class, uninterrupted entertainment.</p>`
@@ -65,7 +65,7 @@ html = html.replace(
 
 // 8. Free Trial
 html = html.replace(
-  /<h2 id="trialHeading">Free Trial – No Commitment<\/h2>\s*<p>Try StreamEU Pro free for 24 hours\. 25,000\+ channels, full 4K quality — no credit card, no strings attached\.<\/p>/s,
+  /<h2 id="trialHeading">Free Trial – No Commitment<\/h2>\s*<p>Try IPTV Mate free for 24 hours\. 25,000\+ channels, full 4K quality — no credit card, no strings attached\.<\/p>/s,
   `<h2 id="trialHeading">Free IPTV Trial — Try Before You Buy</h2>
       <p>We are so confident in the unmatched quality, speed, and reliability of our streaming service that we want you to test it out completely risk-free. If you are searching for a highly reliable yet cheap IPTV Europe with free trial, you are in exactly the right place.</p>
       <p style="margin-top:var(--sp-12);">Grab your IPTV trial Europe today and take the time to deeply explore our extensive channel list, test the flawless 4K picture quality, and browse our massive, regularly updated Video on Demand (VOD) library. We actively encourage you to take a full test drive during a live sporting event or a weekend movie night. This allows you to experience our superior anti-freeze technology firsthand, ensuring total satisfaction before making any financial commitments.</p>`

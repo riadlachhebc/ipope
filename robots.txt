@@ -7,4 +7,4 @@ Disallow: /privacy.html
 Disallow: /refund.html
 
 # Sitemap
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://iptv-mate.net/sitemap.xml

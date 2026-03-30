@@ -1,6 +1,6 @@
-/* ================================================================
+﻿/* ================================================================
    ANIMATIONS.JS — IntersectionObserver Scroll Fade-In
-   StreamEU Pro | IPTV Europe
+   IPTV Mate | IPTV Europe
    ================================================================ */
 (function () {
   'use strict';

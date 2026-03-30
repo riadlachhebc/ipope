@@ -1,6 +1,6 @@
-/* ================================================================
+﻿/* ================================================================
    BASE.CSS — Design Tokens, Reset & Typography
-   StreamEU Pro | IPTV Europe
+   IPTV Mate | IPTV Europe
    ================================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
@@ -212,7 +212,7 @@ strong { color: var(--text-heading); font-weight: 600; }
 
 /* ================================================================
    COMPONENTS.CSS — Reusable UI Components
-   StreamEU Pro | IPTV Europe
+   IPTV Mate | IPTV Europe
    ================================================================ */
 
 /* ── Buttons ─────────────────────────────────────────────────── */
@@ -833,7 +833,7 @@ strong { color: var(--text-heading); font-weight: 600; }
 
 /* ================================================================
    LAYOUT.CSS — Navigation, Hero, Sections, Footer
-   StreamEU Pro | IPTV Europe
+   IPTV Mate | IPTV Europe
    ================================================================ */
 
 /* ── Navigation ──────────────────────────────────────────────── */
@@ -1244,7 +1244,7 @@ strong { color: var(--text-heading); font-weight: 600; }
 
 /* ================================================================
    ANIMATIONS.CSS — Keyframes, Scroll Fade-In, Hover FX
-   StreamEU Pro | IPTV Europe
+   IPTV Mate | IPTV Europe
    ================================================================ */
 
 /* ── Scroll Fade-In Classes ──────────────────────────────────── */

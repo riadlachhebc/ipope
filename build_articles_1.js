@@ -1,4 +1,4 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 
 const targetDir = path.join(__dirname, 'blog');
@@ -22,8 +22,8 @@ function fixPaths(html) {
     replaced = replaced.replace(/href="css\/styles\.min\.css"/g, 'href="../css/styles.min.css"');
     replaced = replaced.replace(/src="js\/bundle\.min\.js"/g, 'src="../js/bundle.min.js"');
     replaced = replaced.replace(/src="assets\//g, 'src="../assets/');
-    replaced = replaced.replace(/href="https:\/\/streameu\.pro\/assets\//g, 'href="../assets/');
-    replaced = replaced.replace(/content="https:\/\/streameu\.pro\/assets\//g, 'content="../assets/');
+    replaced = replaced.replace(/href="https:\/\/IPTV Mate\.pro\/assets\//g, 'href="../assets/');
+    replaced = replaced.replace(/content="https:\/\/IPTV Mate\.pro\/assets\//g, 'content="../assets/');
     replaced = replaced.replace(/url\("assets\//g, 'url("../assets/');
     replaced = replaced.replace(/href="\/"/g, 'href="../index.html"');
     // Pages

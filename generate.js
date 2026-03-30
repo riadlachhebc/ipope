@@ -1,4 +1,4 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 const path = require('path');
 
 let { headerPart, footerPart, sidebarHTML, targetDir, BASE_URL } = require('./build_articles_1');
@@ -35,14 +35,14 @@ allArticles.forEach((article, index) => {
       "datePublished": "2025-${article.date.split(' ')[0]}-01",
       "author": {
         "@type": "Organization",
-        "name": "StreamEU Pro Editorial Team"
+        "name": "IPTV Mate Editorial Team"
       },
       "publisher": {
         "@type": "Organization",
-        "name": "StreamEU Pro",
+        "name": "IPTV Mate",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://yourdomain.com/assets/images/hero-mockup.png"
+          "url": "https://iptv-mate.net/assets/images/hero-mockup.png"
         }
       }
     }
@@ -87,7 +87,7 @@ allArticles.forEach((article, index) => {
         <div class="author-box">
             <div class="author-avatar">EU</div>
             <div>
-                <h4 style="margin-bottom:var(--sp-8); color:var(--text-heading); font-size:1.2rem;">StreamEU Pro Editorial Team</h4>
+                <h4 style="margin-bottom:var(--sp-8); color:var(--text-heading); font-size:1.2rem;">IPTV Mate Editorial Team</h4>
                 <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.5;">Passionate technical experts dedicated to bringing you the best IPTV hardware reviews, service analysis, and setup tutorials across Europe.</p>
             </div>
         </div>

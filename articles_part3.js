@@ -1,7 +1,7 @@
-module.exports = [
+﻿module.exports = [
   {
     filename: 'best-iptv-spain.html',
-    title: 'Best IPTV Service in Spain 2026 — Local Channels, La Liga & More | StreamEU Pro',
+    title: 'Best IPTV Service in Spain 2026 — Local Channels, La Liga & More | IPTV Mate',
     metaDesc: 'Looking to buy premium IPTV subscription Spain? We cover the top Spanish local channels, reliable La Liga streams, and setup tips for Spanish viewers.',
     category: 'Reviews',
     date: 'Nov 14, 2025',
@@ -41,7 +41,7 @@ module.exports = [
   },
   {
     filename: 'iptv-smart-tv-setup.html',
-    title: 'How to Install IPTV on Samsung & LG Smart TV (Full Guide) | StreamEU Pro',
+    title: 'How to Install IPTV on Samsung & LG Smart TV (Full Guide) | IPTV Mate',
     metaDesc: 'A complete guide to IPTV Smart TV Europe. Learn how to install the best native IPTV apps on your LG WebOS or Samsung Tizen television instantly without an extra box.',
     category: 'Setup Guides',
     date: 'Dec 05, 2025',
@@ -88,7 +88,7 @@ module.exports = [
         <li>Navigate to the official website of the specific app you installed (e.g., <em>iboplayer.com/device/login</em>).</li>
         <li>Enter the Device MAC and Key you photographed from your television screen to log into the web portal.</li>
         <li>Look for a section titled <strong>Add Playlist</strong> or <strong>Add M3U URL</strong>.</li>
-        <li>In the "Playlist Name" field, type "StreamEU Pro".</li>
+        <li>In the "Playlist Name" field, type "IPTV Mate".</li>
         <li>In the "M3U URL" field, carefully copy and paste the massive (and very specific) link that your IPTV provider emailed to you upon your subscription confirmation.</li>
         <li>Click <strong>Save</strong> or <strong>Upload</strong>.</li>
       </ol>
@@ -108,7 +108,7 @@ module.exports = [
   },
   {
     filename: 'is-iptv-legal-europe.html',
-    title: 'Is IPTV Legal in Europe? What You Need to Know in 2026 | StreamEU Pro',
+    title: 'Is IPTV Legal in Europe? What You Need to Know in 2026 | IPTV Mate',
     metaDesc: 'A straightforward, honest analysis of the IPTV legal Europe landscape. Understand the difference between legitimate hardware streaming and copyright infringement in 2026.',
     category: 'IPTV News',
     date: 'Jan 10, 2026',
@@ -141,7 +141,7 @@ module.exports = [
       <p>By installing a VPN directly onto their Smart TV or Firestick, the user's internet data is scrambled. Their Internet Service Provider cannot see what website they are visiting, what server they are connecting to, or what data they are downloading. They simply see a secure tunnel pointing toward a random server location. VPNs like Surfshark, NordVPN, and ExpressVPN are highly popular amongst European streaming enthusiasts for this precise reason.</p>
 
       <div style="margin-top: 40px; text-align: center; background: rgba(59, 130, 246, 0.1); padding: 30px; border-radius: 8px; border: 1px solid rgba(59, 130, 246, 0.2);">
-        <h3 style="margin-top: 0;">Stream Securely with StreamEU</h3>
+        <h3 style="margin-top: 0;">Stream Securely with IPTV Mate</h3>
         <p>Our robust servers are compatible with all major VPN providers and offer unparalleled 256-bit encryption for total anonymity and security.</p>
         <div style="margin-top: 20px;">
           <a href="../free-trial.html" class="btn btn-primary" style="margin-right: 15px;">Start Your Anonymous Trial</a>

@@ -1,7 +1,7 @@
-module.exports = [
+﻿module.exports = [
   {
     filename: 'best-iptv-europe-2026.html',
-    title: "Best IPTV Subscription in Europe 2026 — Complete Buyer's Guide | StreamEU Pro",
+    title: "Best IPTV Subscription in Europe 2026 — Complete Buyer's Guide | IPTV Mate",
     metaDesc: "Looking for the best IPTV Europe offers? Read our comprehensive 2026 buyer's guide covering channel count, 4K quality, reliability, and device compatibility.",
     category: "Reviews",
     date: "Oct 15, 2025",
@@ -64,7 +64,7 @@ module.exports = [
   },
   {
     filename: 'iptv-firestick-setup.html',
-    title: 'How to Set Up IPTV on Firestick in 5 Minutes (2026 Guide) | StreamEU Pro',
+    title: 'How to Set Up IPTV on Firestick in 5 Minutes (2026 Guide) | IPTV Mate',
     metaDesc: 'A straightforward, step-by-step tutorial on installing and setting up IPTV for Firestick. Download TiviMate or IPTV Smarters Pro and start streaming instantly.',
     category: 'Setup Guides',
     date: 'Oct 22, 2025',
@@ -103,7 +103,7 @@ module.exports = [
       <p>Upon launching your chosen player, you will be prompted to log in. Your IPTV provider will have emailed you these credentials immediately upon subscription.</p>
       <p><strong>Xtream Codes API Login (Recommended)</strong></p>
       <ul>
-        <li><strong>Name:</strong> Give your playlist a name (e.g., StreamEU)</li>
+        <li><strong>Name:</strong> Give your playlist a name (e.g., IPTV Mate)</li>
         <li><strong>Username:</strong> Enter the username from your welcome email.</li>
         <li><strong>Password:</strong> Enter your password.</li>
         <li><strong>Server URL:</strong> Enter the specific server portal address.</li>
