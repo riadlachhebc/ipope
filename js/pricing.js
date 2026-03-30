@@ -106,7 +106,7 @@ function updatePricing(connections) {
     const suffix = connections > 1 ? ` (${connections} Conns)` : '';
     const priceText = card.querySelector('.amount')?.textContent.trim() || '';
     const fullPlanName = planName + suffix;
-    link.href = `crypto-payment?plan=${encodeURIComponent(fullPlanName)}&price=${encodeURIComponent(priceText)}&v=${Date.now()}`;
+    link.href = `crypto-payment.html?plan=${encodeURIComponent(fullPlanName)}&price=${encodeURIComponent(priceText)}&v=${Date.now()}`;
   });
 
   /* 4. Savings Table */
