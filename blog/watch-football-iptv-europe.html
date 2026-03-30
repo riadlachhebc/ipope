@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watch Premier League, La Liga & Champions League via IPTV in Europe | StreamEU Pro</title>
+  <meta name="description" content="Never miss a match. Find out which IPTV sports channels Europe fans use to watch the Premier League, La Liga, and Champions League buffer-free." />
+  <link rel="canonical" href="http://localhost:8080/blog/watch-football-iptv-europe.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="StreamEU Pro" />
+  <meta property="og:locale" content="en_EU" />
+  <meta property="og:title" content="Watch Premier League, La Liga & Champions League via IPTV in Europe | StreamEU Pro" />
+  <meta property="og:description" content="Never miss a match. Find out which IPTV sports channels Europe fans use to watch the Premier League, La Liga, and Champions League buffer-free." />
+  <meta property="og:url" content="http://localhost:8080/blog/watch-football-iptv-europe.html" />
+  <meta property="og:image" content="https://yourdomain.com/assets/images/hero-mockup.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="StreamEU Pro IPTV Blog" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@streameuproiptv" />
+  <meta name="twitter:title" content="Watch Premier League, La Liga & Champions League via IPTV in Europe | StreamEU Pro" />
+  <meta name="twitter:description" content="Never miss a match. Find out which IPTV sports channels Europe fans use to watch the Premier League, La Liga, and Champions League buffer-free." />
+  <meta name="twitter:image" content="https://yourdomain.com/assets/images/hero-mockup.png" />
+
+  <!-- Schema.org: Blog -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Watch Premier League, La Liga & Champions League via IPTV in Europe | StreamEU Pro",
+      "description": "Never miss a match. Find out which IPTV sports channels Europe fans use to watch the Premier League, La Liga, and Champions League buffer-free.",
+      "datePublished": "2025-Oct-01",
+      "author": {
+        "@type": "Organization",
+        "name": "StreamEU Pro Editorial Team"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "StreamEU Pro",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://yourdomain.com/assets/images/hero-mockup.png"
+        }
+      }
+    }
+    </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Global CSS (minified) -->
+  <link rel="stylesheet" href="../css/styles.min.css" />
+
+  <!-- Blog Page Specific CSS -->
+  <style>
+    .blog-header {
+      padding: var(--sp-64) 0 var(--sp-32);
+      text-align: center;
+    }
+    .blog-header h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      margin-bottom: var(--sp-12);
+    }
+    .blog-header p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .blog-filters {
+      display: flex;
+      justify-content: center;
+      gap: var(--sp-12);
+      flex-wrap: wrap;
+      margin-top: var(--sp-32);
+    }
+    .filter-btn {
+      padding: 8px 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-muted);
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .blog-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: var(--sp-40);
+      margin-top: var(--sp-40);
+      margin-bottom: var(--sp-64);
+      align-items: start;
+    }
+    @media (max-width: 991px) {
+      .blog-layout { grid-template-columns: 1fr; }
+    }
+
+    /* Featured Post */
+    .featured-post {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: var(--sp-40);
+      transition: transform 0.2s;
+    }
+    @media (max-width: 768px) {
+      .featured-post { grid-template-columns: 1fr; }
+    }
+    .featured-post:hover { transform: translateY(-4px); }
+    .featured-img {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      background: #2a2a35;
+      object-fit: cover;
+    }
+    .featured-content {
+      padding: var(--sp-40);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .post-meta {
+      font-size: 0.85rem;
+      color: var(--primary);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--sp-12);
+    }
+    .featured-content h2 {
+      font-size: 1.8rem;
+      line-height: 1.3;
+      margin-bottom: var(--sp-16);
+      color: var(--text-heading);
+    }
+    
+    /* Post Grid */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--sp-24);
+    }
+    .post-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+    }
+    .post-card:hover {
+      transform: translateY(-4px);
+    }
+    .post-img {
+      width: 100%;
+      height: 200px;
+      background: #2a2a35;
+      object-fit: cover;
+    }
+    .post-body {
+      padding: var(--sp-24);
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .post-title {
+      font-size: 1.15rem;
+      line-height: 1.4;
+      margin-bottom: var(--sp-12);
+      font-family: var(--font-heading);
+      font-weight: 600;
+      color: var(--text-heading);
+    }
+    .post-excerpt {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: var(--sp-16);
+      flex-grow: 1;
+    }
+    .post-readmore {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-top: auto;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-32);
+    }
+    .widget {
+      background: var(--bg-surface);
+      padding: var(--sp-24);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+    }
+    .widget h3 {
+      font-size: 1.25rem;
+      margin-bottom: var(--sp-20);
+      font-family: var(--font-heading);
+      color: var(--text-heading);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: var(--sp-12);
+    }
+    .widget-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-16);
+    }
+    .widget-list a {
+      color: var(--text-heading);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      line-height: 1.3;
+      transition: color 0.2s;
+    }
+    .widget-list a:hover {
+      color: var(--primary);
+    }
+    
+    /* Tag Cloud */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .tag {
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      background: rgba(255,255,255,0.03);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.2s;
+    }
+    .tag:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* Newsletter */
+    .newsletter-input {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      color: white;
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--sp-16);
+      font-family: var(--font-body);
+    }
+    .newsletter-input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+  </style>
+
+    <style>
+      .article-container { display: grid; grid-template-columns: 1fr 340px; gap: var(--sp-40); margin: var(--sp-64) auto; align-items: start; max-width: 1200px; }
+      @media (max-width: 991px) { .article-container { grid-template-columns: 1fr; } }
+      .breadcrumb { font-size: 0.9rem; margin-bottom: var(--sp-24); color: var(--text-muted); }
+      .breadcrumb a { color: var(--primary); text-decoration: none; }
+      .breadcrumb a:hover { text-decoration: underline; }
+      .article-hero { margin-bottom: var(--sp-40); padding-bottom: var(--sp-32); border-bottom: 1px solid var(--border-color); }
+      .category-badge { display: inline-block; padding: 4px 12px; border-radius: 4px; background: var(--primary); color: white; font-size: 0.8rem; text-transform: uppercase; font-weight: 600; margin-bottom: var(--sp-16); }
+      .article-title { font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.2; margin-bottom: var(--sp-16); color: var(--text-heading); }
+      .article-meta { display: flex; gap: var(--sp-16); color: var(--text-muted); font-size: 0.9rem; align-items: center; }
+      .article-content { line-height: 1.8; font-size: 1.05rem; color: var(--text-body); }
+      .article-content h2 { margin-top: var(--sp-40); margin-bottom: var(--sp-16); font-size: 1.8rem; color: var(--text-heading); }
+      .article-content h3 { margin-top: var(--sp-32); margin-bottom: var(--sp-12); font-size: 1.4rem; color: var(--text-heading); }
+      .article-content p { margin-bottom: var(--sp-20); }
+      .article-content ul, .article-content ol { margin-bottom: var(--sp-20); padding-left: var(--sp-24); }
+      .article-content li { margin-bottom: var(--sp-8); }
+      .author-box { display: flex; gap: var(--sp-20); background: var(--bg-surface); padding: var(--sp-24); border-radius: var(--radius-md); border: 1px solid var(--border-color); margin-top: var(--sp-64); align-items: center; }
+      .author-avatar { width: 64px; height: 64px; border-radius: 50%; background: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; flex-shrink: 0; }
+      .related-posts { margin-top: var(--sp-64); border-top: 1px solid var(--border-color); padding-top: var(--sp-40); }
+      .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-24); margin-top: var(--sp-24); }
+      @media (max-width: 600px) { .related-grid { grid-template-columns: 1fr; } }
+      .related-card { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: var(--sp-20); transition: transform 0.2s; display: block; text-decoration: none; }
+      .related-card:hover { transform: translateY(-3px); border-color: var(--primary); }
+      .related-card h4 { color: var(--text-heading); margin-bottom: 8px; font-size: 1.1rem; line-height: 1.4;}
+      .related-card p { color: var(--text-muted); font-size: 0.9rem; }
+    </style>
+  </head>
+<body>
+
+<!-- ── Navbar ──────────────────────────────────────────────────── -->
+<nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo" aria-label="StreamEU Pro Home">
+        <div class="nav-logo-mark" aria-hidden="true">📺</div>
+        StreamEU<span class="text-accent">Pro</span>
+      </a>
+      <ul class="nav-links" role="menubar">
+        <li role="none"><a class="nav-link" href="index.html#features" role="menuitem">Features</a></li>
+        <li role="none"><a class="nav-link" href="../pricing.html" role="menuitem">Plans</a></li>
+        <li role="none"><a class="nav-link" href="../channels.html" role="menuitem">Channels</a></li>
+        <li role="none"><a class="nav-link" href="../iptv-sports.html" role="menuitem">Sports</a></li>
+        <li role="none"><a class="nav-link active" href="../blog.html" role="menuitem">Blog</a></li>
+        <li role="none"><a class="nav-link" href="../support.html" role="menuitem">Support</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+          <span id="themeIcon">☀️</span>
+        </button>
+        <a href="../free-trial.html" class="btn btn-secondary btn-sm">Free Trial</a>
+        <a href="../pricing.html" class="btn btn-primary btn-sm">Get Started</a>
+      </div>
+      <button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <a class="mobile-nav-link" href="index.html#features">Features</a>
+  <a class="mobile-nav-link" href="../pricing.html">Plans & Pricing</a>
+  <a class="mobile-nav-link" href="../channels.html">All Channels</a>
+  <a class="mobile-nav-link" href="../iptv-sports.html">Sports</a>
+  <a class="mobile-nav-link" href="../blog.html">Blog</a>
+  <a class="mobile-nav-link" href="../support.html">Support</a>
+  <div class="mobile-menu-actions">
+    <a href="../free-trial.html" class="btn btn-secondary">Start Free Trial</a>
+    <a href="../pricing.html" class="btn btn-primary">View Plans</a>
+  </div>
+</div>
+
+<!-- ── Blog Main Layout ─────────────────────────────────────────── -->
+
+<main class="container">
+  <div class="article-container">
+    <article class="article-main fade-in">
+        <div class="breadcrumb">
+            <a href="../index.html">Home</a> &gt; <a href="../blog.html">Blog</a> &gt; <span>Watch Premier League, La Liga & Champions League via IPTV in Europe</span>
+        </div>
+        
+        <header class="article-hero">
+            <span class="category-badge">Sports</span>
+            <h1 class="article-title">Watch Premier League, La Liga & Champions League via IPTV in Europe</h1>
+            <div class="article-meta">
+                <span>📅 Oct 28, 2025</span>
+                <span>⏱️ 6 min read</span>
+            </div>
+        </header>
+        
+        <div class="article-content">
+            <p style="font-size:1.15rem; font-weight:500; margin-bottom:var(--sp-32); line-height:1.7; color:var(--text-muted); padding-left:15px; border-left:4px solid var(--primary);">European football is a global phenomenon. In countries like the UK and Spain, acquiring official licenses for the English Premier League, La Liga, and the UEFA Champions League usually means subscribing to three or four expensive, fragmented television providers.</p>
+            
+      <h2>The Fractured Nature of European Football Rights</h2>
+      <p>Gone are the days when a single basic cable package granted you unlimited access to every domestic football match. In the UK, for instance, a devastating mix of Sky Sports, TNT Sports, and Amazon Prime partitions the <strong>Premier League</strong> schedule. This forces fans to spend over £100 per month just to follow their home team.</p>
+      <p>Similarly, following Spanish <strong>La Liga</strong> or the <strong>Champions League</strong> from abroad is plagued by geo-blocks, blackout periods, and exorbitant à-la-carte viewing fees. But how are thousands of fans bypassing these restrictions legally and reliably? High-quality <strong>IPTV sports channels Europe</strong> servers provide the answer, often highlighted in our <a href="best-iptv-europe-2026.html" style="color:var(--primary); text-decoration:underline;">2026 IPTV buyer's guide</a> for their robust performance.</p>
+
+      <h2>The Ultimate Solution: Consolidated Sports Packages</h2>
+      <p>A premium IPTV subscription acts as an aggregator for all major sports channels. Rather than paying five different broadcasters, a single interface grants you uninterrupted access to the raw feeds.</p>
+      <h3>Premier League Focus</h3>
+      <p>To watch every single Premier League match without blackout periods, an IPTV subscription routing via Irish, US, or Australian sports networks guarantees full coverage. Specifically, channels such as Optus Sport, Peacock, and the localized Sky Sports Ireland feeds ensure you never encounter the dreaded 3 PM UK blackout.</p>
+      <h3>La Liga and UEFA Champions League</h3>
+      <p>For Spanish viewers and international La Liga fans, connecting to the dedicated Movistar+ LaLiga feeds via your IPTV provider presents the matches in pristine 4K resolution, often with Spanish and English dual-audio tracks.</p>
+
+      <h2>Why Server Quality Dictates Live Sports</h2>
+      <p>Watching pre-recorded video on demand is easy for any budget provider. However, delivering live sports to tens of thousands of simultaneous viewers requires immense infrastructure. When selecting an IPTV service strictly for sports, look for:",
+      <ul>
+        <li><strong>Anti-Freeze Load Balancing:</strong> The server automatically shifts incoming traffic to less congested nodes during a major Champions League final or heavy-weight PPV boxing match.</li>
+        <li><strong>High Framerate Streams:</strong> 50fps and 60fps broadcasts are crucial for live sports. Watching football at 25 or 30fps results in "ghosting" or motion blur around the players and the ball.</li>
+        <li><strong>Backup Feeds:</strong> A reputable service will offer multiple source feeds for the same event (e.g., Sky Sports Main Event Feed 1, Feed 2, Feed 3). If one goes down momentarily, you simply click the next channel down.</li>
+      </ul>
+
+      <h2>Boxing, MMA, and Global PPV Events</h2>
+      <p>Aside from football, standard sports packages on premium IPTV networks automatically unlock international Pay-Per-View (PPV) events. Major UFC cards, WWE Network specials, and massive DAZN boxing events are usually bundled into the standard monthly subscription.</p>
+      <p>When searching for sports packages, simply check the "PPV / Live Events" category in your TiviMate or Smarters app interface 24 hours before the fight begins; you will typically see the event listed and waiting for the pre-show broadcast.</p>
+
+      <div style="margin-top: 40px; text-align: center; background: rgba(59, 130, 246, 0.1); padding: 30px; border-radius: 8px; border: 1px solid rgba(59, 130, 246, 0.2);">
+        <h3 style="margin-top: 0;">Watch Your Team This Weekend</h3>
+        <p>Grab a quick 24-hour trial and verify our dedicated ultra-low latency sports servers before the big match begins.</p>
+        <div style="margin-top: 20px;">
+          <a href="../free-trial.html" class="btn btn-primary" style="margin-right: 15px;">Start Free Trial</a>
+          <a href="../pricing.html" class="btn btn-secondary">View Sports Packages</a>
+        </div>
+      </div>
+    
+        </div>
+        
+        <div class="author-box">
+            <div class="author-avatar">EU</div>
+            <div>
+                <h4 style="margin-bottom:var(--sp-8); color:var(--text-heading); font-size:1.2rem;">StreamEU Pro Editorial Team</h4>
+                <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.5;">Passionate technical experts dedicated to bringing you the best IPTV hardware reviews, service analysis, and setup tutorials across Europe.</p>
+            </div>
+        </div>
+        
+        <div class="related-posts">
+            <h3 style="font-size:1.4rem; margin-bottom:var(--sp-24); color:var(--text-heading);">Related Articles</h3>
+            <div class="related-grid">
+                
+        <a href="best-iptv-europe-2026.html" class="related-card">
+            <h4>Best IPTV Subscription in Europe 2026 — Complete Buyer's Guide</h4>
+            <p>Reviews • 7 min read</p>
+        </a>
+        <a href="iptv-firestick-setup.html" class="related-card">
+            <h4>How to Set Up IPTV on Firestick in 5 Minutes (2026 Guide)</h4>
+            <p>Setup Guides • 5 min read</p>
+        </a>
+            </div>
+        </div>
+    </article>
+    
+    <aside class="sidebar fade-in">
+      
+      <!-- CTA Widget -->
+      <div class="widget">
+        <h3>Start Watching Now</h3>
+        <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:var(--sp-20);">Enjoy 25,000+ premium channels with zero buffering across Europe.</p>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <a href="../free-trial.html" class="btn btn-primary" style="width:100%; text-align:center;">Get Free Trial</a>
+          <a href="../pricing.html" class="btn btn-outline-accent" style="width:100%; text-align:center;">View Pricing Plans</a>
+        </div>
+      </div>
+
+      <!-- Popular Posts Widget -->
+      <div class="widget">
+        <h3>Popular Posts</h3>
+        <ul class="widget-list">
+          <li><a href="best-iptv-europe-2026.html">Best IPTV Subscription in Europe 2026</a></li>
+          <li><a href="iptv-firestick-setup.html">How to Set Up IPTV on Firestick</a></li>
+          <li><a href="anti-freeze-iptv-explained.html">Fixing Buffering Issues with Anti-Freeze</a></li>
+          <li><a href="is-iptv-legal-europe.html">Is IPTV Legal in Europe? What You Need to Know</a></li>
+          <li><a href="iptv-smart-tv-setup.html">How to Install IPTV on Smart TV</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter Widget -->
+      <div class="widget">
+        <h3>Newsletter</h3>
+        <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:var(--sp-16);">Join 50,000+ viewers. Get weekly setup tips and exclusive subscription discounts.</p>
+        <form onsubmit="event.preventDefault();">
+          <input type="email" class="newsletter-input" placeholder="Your email address" required />
+          <button type="submit" class="btn btn-secondary" style="width:100%;">Subscribe</button>
+        </form>
+      </div>
+
+      <!-- Tags Widget -->
+      <div class="widget">
+        <h3>Topic Tags</h3>
+        <div class="tag-cloud">
+          <a href="#" class="tag">IPTV Europe</a>
+          <a href="#" class="tag">Firestick</a>
+          <a href="#" class="tag">4K Streaming</a>
+          <a href="#" class="tag">Anti-Freeze</a>
+          <a href="#" class="tag">Sports IPTV</a>
+          <a href="#" class="tag">Free Trial</a>
+          <a href="#" class="tag">Smart TV</a>
+          <a href="#" class="tag">Premier League</a>
+          <a href="#" class="tag">La Liga</a>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+</main>
+<!-- ── Upgrade CTA ───────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="cta-banner fade-in">
+      <h2>Ready to Upgrade Your Entertainment?</h2>
+      <p>Stop overpaying for limited, overpriced cable packages and start watching premium television on your own terms. Join the thousands of satisfied European viewers who have already made the switch to the ultimate cord-cutting solution.</p>
+      <div class="cta-banner-actions" style="margin-top:var(--sp-24);">
+        <a href="../free-trial.html" class="btn btn-primary btn-lg">Start Your Free Trial Now</a>
+        <a href="../pricing.html" class="btn btn-secondary btn-lg">View Our Subscription Plans</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────────────────────── -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="../index.html" class="nav-logo" style="display:inline-flex; margin-bottom:var(--sp-16);">
+          <div class="nav-logo-mark" aria-hidden="true">📺</div>
+          StreamEU<span class="text-accent">Pro</span>
+        </a>
+        <p>Premium IPTV subscriptions for Europe. 25,000+ channels, 4K quality, anti-freeze technology. Trusted by 50,000+ subscribers across the EU.</p>
+        <div class="footer-socials">
+          <a href="https://wa.me/33600000000" class="footer-social-link" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1.2em" height="1.2em" style="vertical-align: middle;"><path d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.85-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.264 8.264 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81c-.23-.08-.39-.12-.56.12c-.17.25-.64.81-.78.97c-.14.17-.29.19-.54.06c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43c.12-.14.17-.25.25-.41c.08-.17.04-.31-.02-.43c-.06-.12-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31c-.22.25-.86.85-.86 2.07c0 1.22.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74c.59.26 1.05.41 1.41.52c.59.19 1.13.16 1.56.1c.48-.07 1.47-.6 1.67-1.18c.2-.58.2-1.08.14-1.18a.5.5 0 0 0-.34-.11z"/></svg></a>
+          <a href="https://t.me/streameuproiptv" class="footer-social-link" aria-label="Telegram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1.2em" height="1.2em" style="vertical-align: middle;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19c-.14.75-.42 1-.68 1.03c-.58.05-1.02-.38-1.58-.75c-.88-.58-1.38-.94-2.23-1.5c-.99-.65-.35-1.01.22-1.59c.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02c-.09.02-1.49.95-4.22 2.79c-.4.27-.76.41-1.08.4c-.36-.01-1.04-.2-1.55-.37c-.63-.2-1.12-.31-1.08-.66c.02-.18.27-.36.74-.55c2.92-1.27 4.86-2.11 5.83-2.51c2.78-1.16 3.35-1.36 3.73-1.36c.08 0 .27.02.39.12c.1.08.13.19.14.27c-.01.06.01.24 0 .38z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a class="footer-link" href="../pricing.html">Plans &amp; Pricing</a></li>
+          <li><a class="footer-link" href="../channels.html">All Channels</a></li>
+          <li><a class="footer-link" href="../iptv-sports.html">Sports IPTV</a></li>
+          <li><a class="footer-link" href="../free-trial.html">Free Trial</a></li>
+          <li><a class="footer-link" href="../blog.html">Blog</a></li>
+          <li><a class="footer-link" href="../support.html">Support</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul class="footer-links">
+          <li><a class="footer-link" href="../terms.html">Terms &amp; Conditions</a></li>
+          <li><a class="footer-link" href="../privacy.html">Privacy Policy</a></li>
+          <li><a class="footer-link" href="../refund.html">Refund Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <a href="https://wa.me/33600000000" class="footer-contact-item">
+          <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1.2em" height="1.2em" style="vertical-align: middle;"><path d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.85-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.264 8.264 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81c-.23-.08-.39-.12-.56.12c-.17.25-.64.81-.78.97c-.14.17-.29.19-.54.06c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43c.12-.14.17-.25.25-.41c.08-.17.04-.31-.02-.43c-.06-.12-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31c-.22.25-.86.85-.86 2.07c0 1.22.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74c.59.26 1.05.41 1.41.52c.59.19 1.13.16 1.56.1c.48-.07 1.47-.6 1.67-1.18c.2-.58.2-1.08.14-1.18a.5.5 0 0 0-.34-.11z"/></svg></span> WhatsApp Support
+        </a>
+        <a href="https://t.me/streameuproiptv" class="footer-contact-item">
+          <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1.2em" height="1.2em" style="vertical-align: middle;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19c-.14.75-.42 1-.68 1.03c-.58.05-1.02-.38-1.58-.75c-.88-.58-1.38-.94-2.23-1.5c-.99-.65-.35-1.01.22-1.59c.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02c-.09.02-1.49.95-4.22 2.79c-.4.27-.76.41-1.08.4c-.36-.01-1.04-.2-1.55-.37c-.63-.2-1.12-.31-1.08-.66c.02-.18.27-.36.74-.55c2.92-1.27 4.86-2.11 5.83-2.51c2.78-1.16 3.35-1.36 3.73-1.36c.08 0 .27.02.39.12c.1.08.13.19.14.27c-.01.06.01.24 0 .38z"/></svg></span> Telegram: @streameuproiptv
+        </a>
+        <div style="margin-top:var(--sp-20);">
+          <span class="badge badge-green">🟢 Support Online</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 StreamEU Pro. Premium IPTV subscriptions for Europe. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="../terms.html">Terms</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../refund.html">Refund Policy</a>
+        <a href="../sitemap.xml">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to top -->
+<button id="scrollTop" class="scroll-top" aria-label="Scroll to top">↑</button>
+
+<!-- JS (minified bundle) -->
+<script src="../js/bundle.min.js" defer></script>
+
+<!-- Blog Filter Logic -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const posts = document.querySelectorAll('.post-card, .featured-post');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const filter = btn.getAttribute('data-filter');
+        
+        posts.forEach(post => {
+          const category = post.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            post.style.display = post.classList.contains('featured-post') ? 'grid' : 'flex';
+          } else {
+            post.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

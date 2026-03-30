@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pay with Crypto — StreamEU Pro</title>
+  <meta name="description" content="Complete your IPTV subscription payment securely with cryptocurrency." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.min.css" />
+
+  <style>
+  /* ── Reset & Base ──────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #060912;
+    color: #e2e8f0;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+  }
+
+  /* ── Animated mesh background ──────────────────────────── */
+  .page-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .page-bg::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -20%;
+    width: 70%;
+    height: 70%;
+    background: radial-gradient(ellipse, rgba(59,130,246,0.12) 0%, transparent 70%);
+    animation: bgDrift 18s ease-in-out infinite alternate;
+  }
+  .page-bg::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    right: -15%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(ellipse, rgba(247,147,26,0.08) 0%, transparent 70%);
+    animation: bgDrift 22s ease-in-out infinite alternate-reverse;
+  }
+  @keyframes bgDrift {
+    from { transform: translate(0,0) scale(1); }
+    to   { transform: translate(5%,8%) scale(1.08); }
+  }
+
+  /* ── Layout ────────────────────────────────────────────── */
+  .cp-page {
+    position: relative;
+    z-index: 1;
+    padding: 120px 24px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .cp-inner {
+    width: 100%;
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+
+
+  /* ── Left Panel — Order Summary ────────────────────────── */
+  .order-panel {
+    position: sticky;
+    top: 90px;
+    background: linear-gradient(160deg, #0d1526 0%, #0a1020 100%);
+    border: 1px solid rgba(59,130,246,0.2);
+    border-radius: 24px;
+    padding: 32px 28px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06);
+  }
+
+  @media (max-width: 900px) {
+    .cp-inner {
+      grid-template-columns: 1fr;
+    }
+    .order-panel {
+      position: relative !important;
+      top: auto;
+      margin-bottom: 24px;
+    }
+  }
+  .order-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    text-decoration: none;
+  }
+  .order-logo-icon {
+    font-size: 1.4rem;
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .order-logo-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #fff;
+  }
+  .order-logo-name span { color: #3b82f6; }
+
+  .order-divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    margin: 20px 0;
+  }
+
+  .order-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #4b5563;
+    margin-bottom: 8px;
+  }
+  .order-plan-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .order-plan-sub {
+    font-size: 0.82rem;
+    color: #6b7280;
+    margin-bottom: 20px;
+  }
+  .order-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    padding: 20px;
+    background: rgba(247,147,26,0.06);
+    border: 1px solid rgba(247,147,26,0.2);
+    border-radius: 16px;
+    margin-bottom: 20px;
+  }
+  .order-price-currency {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #f7931a;
+    align-self: flex-start;
+    margin-top: 4px;
+  }
+  .order-price-amount {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #f7931a;
+    line-height: 1;
+  }
+  .order-price-period {
+    font-size: 0.85rem;
+    color: #6b7280;
+    align-self: flex-end;
+    margin-bottom: 6px;
+  }
+
+  .order-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .order-feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: #9ca3af;
+  }
+  .order-feature .of-check {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(16,185,129,0.15);
+    border: 1px solid rgba(16,185,129,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    color: #10b981;
+    flex-shrink: 0;
+  }
+
+  .order-security {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: rgba(16,185,129,0.06);
+    border: 1px solid rgba(16,185,129,0.2);
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: #10b981;
+    font-weight: 500;
+  }
+
+  /* ── Right Panel — Payment Card ────────────────────────── */
+  .payment-panel {
+    background: linear-gradient(160deg, #0d1526 0%, #0a1020 100%);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.06);
+  }
+
+  /* ── Step Header Bar ───────────────────────────────────── */
+  .step-header {
+    display: flex;
+    padding: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .step-tab {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 20px 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #4b5563;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  .step-tab + .step-tab::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 25%;
+    height: 50%;
+    width: 1px;
+    background: rgba(255,255,255,0.06);
+  }
+  .step-tab.active {
+    color: #3b82f6;
+    border-bottom-color: #3b82f6;
+    background: rgba(59,130,246,0.04);
+  }
+  .step-tab.done {
+    color: #10b981;
+    border-bottom-color: #10b981;
+  }
+  .step-tab-num {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+  }
+  .step-tab.active .step-tab-num {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: #fff;
+    box-shadow: 0 0 12px rgba(59,130,246,0.5);
+  }
+  .step-tab.done .step-tab-num {
+    background: #10b981;
+    border-color: #10b981;
+    color: #fff;
+  }
+
+  /* ── Payment Body ──────────────────────────────────────── */
+  .payment-body {
+    padding: 36px;
+  }
+  @media (max-width: 640px) {
+    .payment-body { padding: 24px 20px; }
+  }
+
+  .section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .section-sub {
+    font-size: 0.82rem;
+    color: #4b5563;
+    margin-bottom: 24px;
+  }
+
+  /* ── Network Selector ──────────────────────────────────── */
+  .network-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+  @media (max-width: 480px) {
+    .network-grid { grid-template-columns: 1fr; }
+  }
+  .net-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    border-radius: 16px;
+    border: 1.5px solid rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.02);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+  }
+  .net-card:hover {
+    border-color: rgba(59,130,246,0.4);
+    background: rgba(59,130,246,0.04);
+    transform: translateY(-1px);
+  }
+  .net-card.active {
+    border-color: #3b82f6;
+    background: rgba(59,130,246,0.08);
+    box-shadow: 0 0 0 1px rgba(59,130,246,0.3), 0 8px 24px rgba(59,130,246,0.1);
+  }
+  .net-icon-box {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .net-icon-usdt  { background: rgba(38,161,123,0.15); }
+  .net-icon-btc   { background: rgba(247,147,26,0.15); }
+  .net-icon-ltc   { background: rgba(169,169,169,0.1); }
+
+  .net-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #e2e8f0;
+    display: block;
+  }
+  .net-desc {
+    font-size: 0.72rem;
+    color: #4b5563;
+  }
+  .net-card.active .net-name { color: #60a5fa; }
+  .net-selected-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #3b82f6;
+    margin-left: auto;
+    flex-shrink: 0;
+    display: none;
+    box-shadow: 0 0 6px #3b82f6;
+  }
+  .net-card.active .net-selected-dot { display: block; }
+
+  /* ── Section divider ───────────────────────────────────── */
+  .pay-divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin: 0 -36px 32px;
+  }
+  @media (max-width: 640px) {
+    .pay-divider { margin: 0 -20px 24px; }
+  }
+
+  /* ── Send Panel ────────────────────────────────────────── */
+  .send-panel { display: none; }
+  .send-panel.visible {
+    display: block;
+    animation: panelIn 0.25s ease both;
+  }
+  @keyframes panelIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .send-layout {
+    display: grid;
+    grid-template-columns: 172px 1fr;
+    gap: 28px;
+    align-items: start;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 560px) {
+    .send-layout {
+      grid-template-columns: 1fr;
+    }
+    .qr-col { display: flex; justify-content: center; }
+  }
+
+  .qr-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 14px;
+    width: 172px;
+    height: 172px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+  .qr-card img {
+    width: 144px;
+    height: 144px;
+    display: block;
+  }
+
+
+  .addr-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(59,130,246,0.1);
+    border: 1px solid rgba(59,130,246,0.25);
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #60a5fa;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .addr-field {
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: #e2e8f0;
+    word-break: break-all;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .copy-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .btn-copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(59,130,246,0.1);
+    border: 1.5px solid rgba(59,130,246,0.4);
+    border-radius: 999px;
+    padding: 9px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #60a5fa;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .btn-copy:hover {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(59,130,246,0.35);
+  }
+  .btn-copy.copied {
+    background: rgba(16,185,129,0.1);
+    border-color: rgba(16,185,129,0.4);
+    color: #10b981;
+  }
+
+  /* ── Amount Box ────────────────────────────────────────── */
+  .amount-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 22px;
+    background: linear-gradient(135deg, rgba(247,147,26,0.06) 0%, rgba(245,158,11,0.04) 100%);
+    border: 1px solid rgba(247,147,26,0.2);
+    border-radius: 16px;
+    margin-bottom: 16px;
+  }
+  .amount-left { display: flex; align-items: center; gap: 12px; }
+  .amount-icon-wrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(247,147,26,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+  .amount-label {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-bottom: 2px;
+  }
+  .amount-value {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 1.35rem;
+    color: #f7931a;
+  }
+  .amount-badge {
+    background: rgba(247,147,26,0.12);
+    border: 1px solid rgba(247,147,26,0.25);
+    border-radius: 8px;
+    padding: 4px 10px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #f7931a;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  /* ── Warning ───────────────────────────────────────────── */
+  .warn-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 18px;
+    background: rgba(239,68,68,0.05);
+    border: 1px solid rgba(239,68,68,0.2);
+    border-radius: 14px;
+    margin-bottom: 32px;
+  }
+  .warn-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: rgba(239,68,68,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .warn-text {
+    font-size: 0.82rem;
+    color: #fca5a5;
+    line-height: 1.6;
+  }
+  .warn-text strong { color: #f87171; }
+
+  /* ── Step 3 Confirm ────────────────────────────────────── */
+  .confirm-card {
+    padding: 24px;
+    background: rgba(16,185,129,0.04);
+    border: 1px solid rgba(16,185,129,0.15);
+    border-radius: 16px;
+    margin-bottom: 24px;
+    font-size: 0.88rem;
+    color: #9ca3af;
+    line-height: 1.7;
+  }
+  .confirm-card strong { color: #34d399; }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 480px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+
+  .btn-wa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    border-radius: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 20px rgba(34,197,94,0.2);
+  }
+  .btn-wa:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(34,197,94,0.35);
+    color: #fff;
+  }
+  .btn-wa .payment-btn-icon { font-size: 1.3rem; margin-right: 4px; }
+
+  .btn-tg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 16px 20px;
+    background: linear-gradient(135deg, #0088cc 0%, #006ea6 100%);
+    border-radius: 14px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 20px rgba(0,136,204,0.2);
+  }
+  .btn-tg:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(0,136,204,0.35);
+    color: #fff;
+  }
+  .btn-tg .payment-btn-icon { font-size: 1.3rem; margin-right: 4px; }
+
+  .screenshot-hint {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: #4b5563;
+    line-height: 1.5;
+  }
+  .screenshot-hint strong { color: #9ca3af; }
+
+  /* ── What Happens Next Timeline ────────────────────────── */
+  .timeline-area {
+    margin-top: 36px;
+    padding-top: 32px;
+    border-top: 1px dashed rgba(255,255,255,0.08);
+  }
+  .timeline-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    text-align: center;
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+  }
+  .wn-timeline {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .wn-timeline::before {
+    content: '';
+    position: absolute;
+    top: 22px;
+    left: 40px;
+    right: 40px;
+    height: 2px;
+    background: rgba(255,255,255,0.06);
+    z-index: 0;
+  }
+  .wn-step {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 33%;
+    gap: 12px;
+  }
+  .wn-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: #0d1526;
+    border: 2px solid rgba(59,130,246,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: #60a5fa;
+    box-shadow: 0 0 0 8px #0d1526;
+  }
+  .wn-icon-green { border-color: rgba(16,185,129,0.3); color: #10b981; }
+  .wn-icon-purple { border-color: rgba(139,92,246,0.3); color: #a78bfa; }
+  
+  .wn-text {
+    font-size: 0.72rem;
+    color: #9ca3af;
+    line-height: 1.4;
+  }
+  .wn-text strong {
+    display: block;
+    color: #e2e8f0;
+    font-weight: 600;
+    margin-bottom: 2px;
+    font-size: 0.78rem;
+  }
+  
+  @media (max-width: 520px) {
+    .wn-timeline {
+      flex-direction: column;
+      gap: 24px;
+      align-items: flex-start;
+      margin-left: 10px;
+    }
+    .wn-timeline::before {
+      top: 0;
+      bottom: 0;
+      left: 22px;
+      width: 2px;
+      height: auto;
+    }
+    .wn-step {
+      width: 100%;
+      flex-direction: row;
+      text-align: left;
+      gap: 16px;
+    }
+    .wn-icon {
+      box-shadow: 0 4px 0 8px #0d1526;
+    }
+  }
+
+  /* ── Trust strip (below payment panel) ────────────────── */
+  .trust-strip {
+    max-width: 1100px;
+    margin: 24px auto 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+  @media (max-width: 800px) {
+    .trust-strip { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) {
+    .trust-strip { grid-template-columns: 1fr 1fr; }
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 14px;
+  }
+  .trust-item-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .ti-green { background: rgba(16,185,129,0.12); }
+  .ti-blue  { background: rgba(59,130,246,0.12); }
+  .ti-amber { background: rgba(245,158,11,0.12); }
+  .ti-purple{ background: rgba(139,92,246,0.12); }
+
+  .trust-item-main {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.78rem;
+    color: #e2e8f0;
+    display: block;
+  }
+  .trust-item-sub {
+    font-size: 0.7rem;
+    color: #374151;
+  }
+
+  /* ── Help footer ───────────────────────────────────────── */
+  .help-bar {
+    max-width: 1100px;
+    margin: 32px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 24px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 20px;
+  }
+  .help-bar-text {
+    font-size: 0.88rem;
+    color: #4b5563;
+    font-weight: 500;
+  }
+  .btn-help-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 20px;
+    background: rgba(34,197,94,0.1);
+    border: 1.5px solid rgba(34,197,94,0.3);
+    border-radius: 999px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #22c55e;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .btn-help-wa:hover {
+    background: #22c55e;
+    color: #fff;
+    border-color: #22c55e;
+  }
+  .btn-help-tg {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 20px;
+    background: rgba(0,136,204,0.1);
+    border: 1.5px solid rgba(0,136,204,0.3);
+    border-radius: 999px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #38bdf8;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .btn-help-tg:hover {
+    background: #0088cc;
+    color: #fff;
+    border-color: #0088cc;
+  }
+
+  /* ── Minimal nav override ──────────────────────────────── */
+  .navbar { background: rgba(6,9,18,0.9) !important; backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.06) !important; }
+  </style>
+</head>
+<body>
+
+<div class="page-bg"></div>
+
+<!-- Navbar -->
+<nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="StreamEU Pro Home">
+        <div class="nav-logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#3b82f6" width="1.2em" height="1.2em" style="vertical-align: middle;"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg></div>
+        StreamEU<span class="text-accent">Pro</span>
+      </a>
+      <ul class="nav-links" role="menubar">
+        <li><a class="nav-link" href="index.html#features">Features</a></li>
+        <li><a class="nav-link active" href="pricing.html">Plans</a></li>
+        <li><a class="nav-link" href="channels.html">Channels</a></li>
+        <li><a class="nav-link" href="iptv-sports.html">Sports</a></li>
+        <li><a class="nav-link" href="support.html">Support</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme"><span id="themeIcon">☀️</span></button>
+        <a href="free-trial.html" class="btn btn-secondary btn-sm">Free Trial</a>
+        <a href="pricing.html" class="btn btn-primary btn-sm">← Back to Plans</a>
+      </div>
+      <button id="hamburger" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div id="mobileMenu" class="mobile-menu">
+  <a class="mobile-nav-link" href="pricing.html">← Back to Plans</a>
+  <a class="mobile-nav-link" href="support.html">Support</a>
+  <div class="mobile-menu-actions">
+    <a href="https://wa.me/33600000000" class="btn btn-secondary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1.2em" height="1.2em" style="vertical-align: middle;"><path d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.85-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.264 8.264 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81c-.23-.08-.39-.12-.56.12c-.17.25-.64.81-.78.97c-.14.17-.29.19-.54.06c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43c.12-.14.17-.25.25-.41c.08-.17.04-.31-.02-.43c-.06-.12-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31c-.22.25-.86.85-.86 2.07c0 1.22.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74c.59.26 1.05.41 1.41.52c.59.19 1.13.16 1.56.1c.48-.07 1.47-.6 1.67-1.18c.2-.58.2-1.08.14-1.18a.5.5 0 0 0-.34-.11z"/></svg> WhatsApp</a>
+    <a href="https://t.me/streameuproiptv" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1.2em" height="1.2em" style="vertical-align: middle;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19c-.14.75-.42 1-.68 1.03c-.58.05-1.02-.38-1.58-.75c-.88-.58-1.38-.94-2.23-1.5c-.99-.65-.35-1.01.22-1.59c.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02c-.09.02-1.49.95-4.22 2.79c-.4.27-.76.41-1.08.4c-.36-.01-1.04-.2-1.55-.37c-.63-.2-1.12-.31-1.08-.66c.02-.18.27-.36.74-.55c2.92-1.27 4.86-2.11 5.83-2.51c2.78-1.16 3.35-1.36 3.73-1.36c.08 0 .27.02.39.12c.1.08.13.19.14.27c-.01.06.01.24 0 .38z"/></svg> Telegram</a>
+  </div>
+</div>
+
+<!-- ── Main ─────────────────────────────────────────────────── -->
+<div class="cp-page">
+  <div class="cp-inner">
+
+    <!-- LEFT: Order Summary -->
+    <aside class="order-panel">
+      <a href="index.html" class="order-logo">
+        <div class="order-logo-icon"><svg viewBox="0 0 24 24" fill="#3b82f6" width="1.2em" height="1.2em" style="vertical-align: middle;"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg></div>
+        <span class="order-logo-name">StreamEU<span>Pro</span></span>
+      </a>
+
+      <div class="order-label">You are paying for</div>
+      <div class="order-plan-name" id="summaryPlan">6 Months</div>
+      <div class="order-plan-sub">IPTV Subscription Plan</div>
+
+      <div class="order-price-row">
+        <span class="order-price-currency">€</span>
+        <span class="order-price-amount" id="summaryPrice">47</span>
+        <span class="order-price-period">one-time</span>
+      </div>
+
+      <hr class="order-divider" />
+
+      <ul class="order-features">
+        <li class="order-feature"><span class="of-check">✓</span> +22,000 Live Channels</li>
+        <li class="order-feature"><span class="of-check">✓</span> +120,000 Movies &amp; Series</li>
+        <li class="order-feature"><span class="of-check">✓</span> 4K, UHD, FHD, HD Quality</li>
+        <li class="order-feature"><span class="of-check">✓</span> Fast &amp; Stable Stream</li>
+        <li class="order-feature"><span class="of-check">✓</span> Instant Activation</li>
+        <li class="order-feature"><span class="of-check">✓</span> 24/7 Support</li>
+      </ul>
+
+      <div class="order-security">
+        🔒 &nbsp;Secure &amp; Anonymous Payment
+      </div>
+    </aside>
+
+    <!-- RIGHT: Payment Steps -->
+    <main class="payment-panel" aria-label="Crypto payment flow">
+
+      <!-- Step Header Tabs -->
+      <div class="step-header" role="tablist">
+        <div class="step-tab active" id="stab1" role="tab" aria-selected="true">
+          <div class="step-tab-num">1</div>
+          Choose Network
+        </div>
+        <div class="step-tab" id="stab2" role="tab" aria-selected="false">
+          <div class="step-tab-num">2</div>
+          Send Payment
+        </div>
+        <div class="step-tab" id="stab3" role="tab" aria-selected="false">
+          <div class="step-tab-num">3</div>
+          Confirm
+        </div>
+      </div>
+
+      <div class="payment-body">
+
+        <!-- ── STEP 1: Network ──────────────────────────── -->
+        <div class="section-title">Select your cryptocurrency</div>
+        <div class="section-sub">Choose the coin and network you want to use for payment</div>
+
+        <div class="network-grid" role="radiogroup" aria-label="Crypto network">
+          <div class="net-card active" data-net="trc20" role="radio" aria-checked="true" tabindex="0">
+            <div class="net-icon-box net-icon-usdt"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" style="vertical-align: middle;"><path fill="#26A17B" d="M20 40c11.046 0 20-8.954 20-20S31.046 0 20 0 0 8.954 0 20s8.954 20 20 20z"/><path fill="#fff" d="M23.324 18.067c.05-.286.07-.464.07-.464v-3.522h6.142v-2.18H10.42v2.18h6.11v3.541s.005.18.064.445c-4.48.514-7.666 1.766-7.666 3.235 0 1.549 3.513 2.868 8.272 3.321v7.199h5.567v-7.182c4.646-.484 8.047-1.787 8.047-3.338 0-1.458-3.094-2.698-7.489-3.235zm-3.324 4.808a34.735 34.735 0 01-6.732-2.13c1.78-.962 4.49-1.58 7.502-1.71v3.834c-.258.004-.516.006-.77.006zm0 0c.264 0 .53-.002.793-.006V19.03c3.08.118 5.86.738 7.684 1.716a34.425 34.425 0 01-8.477 2.13z"/></svg></div>
+            <div class="net-info">
+              <span class="net-name">USDT TRC20</span>
+              <span class="net-desc">Tron Network — Fast &amp; Low Fee</span>
+            </div>
+            <span class="net-selected-dot"></span>
+          </div>
+          <div class="net-card" data-net="erc20" role="radio" aria-checked="false" tabindex="0">
+            <div class="net-icon-box net-icon-usdt"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" style="vertical-align: middle;"><path fill="#26A17B" d="M20 40c11.046 0 20-8.954 20-20S31.046 0 20 0 0 8.954 0 20s8.954 20 20 20z"/><path fill="#fff" d="M23.324 18.067c.05-.286.07-.464.07-.464v-3.522h6.142v-2.18H10.42v2.18h6.11v3.541s.005.18.064.445c-4.48.514-7.666 1.766-7.666 3.235 0 1.549 3.513 2.868 8.272 3.321v7.199h5.567v-7.182c4.646-.484 8.047-1.787 8.047-3.338 0-1.458-3.094-2.698-7.489-3.235zm-3.324 4.808a34.735 34.735 0 01-6.732-2.13c1.78-.962 4.49-1.58 7.502-1.71v3.834c-.258.004-.516.006-.77.006zm0 0c.264 0 .53-.002.793-.006V19.03c3.08.118 5.86.738 7.684 1.716a34.425 34.425 0 01-8.477 2.13z"/></svg></div>
+            <div class="net-info">
+              <span class="net-name">USDT ERC20</span>
+              <span class="net-desc">Ethereum Network</span>
+            </div>
+            <span class="net-selected-dot"></span>
+          </div>
+          <div class="net-card" data-net="btc" role="radio" aria-checked="false" tabindex="0">
+            <div class="net-icon-box net-icon-btc"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.2em" height="1.2em" style="vertical-align: middle;" fill="none"><circle cx="12" cy="12" r="12" fill="#F7931A"/><path fill="#FFF" d="M16.14 10.632c.319-2.138-1.282-3.284-3.447-4.032l.707-2.836-1.725-.43-.692 2.774a38.48 38.48 0 00-1.385-.345l.696-2.793-1.725-.43-.706 2.834c-.382-.084-.775-.165-1.171-.247v.006L4.35 4.542l-.599 2.406s1.265.293 1.24.31a.885.885 0 01.768 1.05l-1.523 6.11a.586.586 0 01-.19.349c-.068.046-.24.116-.549.039.02.022-1.24-.31-1.24-.31l-1.092 2.658 2.215.551c.408.102.809.213 1.206.315l-.715 2.871 1.725.43.706-2.834c.48.132.946.257 1.402.378l-.698 2.802 1.725.43.715-2.868c2.923.557 5.127.334 6.059-2.315.75-2.133-.042-3.363-1.573-4.162 1.121-.258 1.961-1 2.186-2.522zM12.63 15.51c-.69 2.771-5.322 1.272-6.824.9l1.21-4.856c1.503.375 6.335.918 5.613 3.956zm.609-5.123c-.628 2.52-4.498 1.192-5.758.878l1.09-4.375c1.26.314 5.32.742 4.668 3.497z"/></svg></div>
+            <div class="net-info">
+              <span class="net-name">Bitcoin BTC</span>
+              <span class="net-desc">Bitcoin Network</span>
+            </div>
+            <span class="net-selected-dot"></span>
+          </div>
+          <div class="net-card" data-net="ltc" role="radio" aria-checked="false" tabindex="0">
+            <div class="net-icon-box net-icon-ltc"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" style="vertical-align: middle;"><circle cx="12" cy="12" r="12" fill="#345D9D"/><path fill="#FFF" d="M11.668 13.918l-.547 2.155h1.86a.417.417 0 01.373.52l-.248.974a.417.417 0 01-.403.314H10.16c.304-1.201.714-2.822.867-3.424l-1.262.391a.416.416 0 01-.52-.294l-.248-.975a.417.417 0 01.294-.52l1.242-.385c.34-1.341 1.258-4.962 1.547-6.096a.414.414 0 01.402-.314h2.128l-.346 1.365a.417.417 0 01-.403.314h-1.042l-1.125 4.435 1.55-.48a.417.417 0 01.52.294l.249.974a.417.417 0 01-.294.52l-1.53.475h5.882c.23 0 .417.186.417.416v1.363a.417.417 0 01-.417.417h-6.273z"/></svg></div>
+            <div class="net-info">
+              <span class="net-name">Litecoin LTC</span>
+              <span class="net-desc">Contact us for address</span>
+            </div>
+            <span class="net-selected-dot"></span>
+          </div>
+        </div>
+
+        <hr class="pay-divider" />
+
+        <!-- ── STEP 2: Send ─────────────────────────────── -->
+        <div class="section-title">Scan or copy wallet address</div>
+        <div class="section-sub">Send the exact amount to the address below</div>
+
+        <!-- TRC20 -->
+        <div class="send-panel visible" id="panel-trc20">
+          <div class="send-layout">
+            <div class="qr-col">
+              <div class="qr-card">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=TKsUrZnbbg4sCnHXycDgao5z4fGUgADdtd" alt="USDT TRC20 QR Code" loading="lazy" width="144" height="144" />
+              </div>
+            </div>
+            <div class="addr-col">
+              <div class="addr-chip"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" style="vertical-align: middle;"><path fill="#26A17B" d="M20 40c11.046 0 20-8.954 20-20S31.046 0 20 0 0 8.954 0 20s8.954 20 20 20z"/><path fill="#fff" d="M23.324 18.067c.05-.286.07-.464.07-.464v-3.522h6.142v-2.18H10.42v2.18h6.11v3.541s.005.18.064.445c-4.48.514-7.666 1.766-7.666 3.235 0 1.549 3.513 2.868 8.272 3.321v7.199h5.567v-7.182c4.646-.484 8.047-1.787 8.047-3.338 0-1.458-3.094-2.698-7.489-3.235zm-3.324 4.808a34.735 34.735 0 01-6.732-2.13c1.78-.962 4.49-1.58 7.502-1.71v3.834c-.258.004-.516.006-.77.006zm0 0c.264 0 .53-.002.793-.006V19.03c3.08.118 5.86.738 7.684 1.716a34.425 34.425 0 01-8.477 2.13z"/></svg>&nbsp; USDT · TRC20 Network</div>
+              <div class="addr-field" id="addr-trc20">TKsUrZnbbg4sCnHXycDgao5z4fGUgADdtd</div>
+              <div class="copy-row">
+                <button class="btn-copy" onclick="copyAddr('trc20')" id="copybtn-trc20">📋 Copy Address</button>
+              </div>
+            </div>
+          </div>
+          <div class="amount-card">
+            <div class="amount-left">
+              <div class="amount-icon-wrap"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" style="vertical-align: middle;"><path fill="#26A17B" d="M20 40c11.046 0 20-8.954 20-20S31.046 0 20 0 0 8.954 0 20s8.954 20 20 20z"/><path fill="#fff" d="M23.324 18.067c.05-.286.07-.464.07-.464v-3.522h6.142v-2.18H10.42v2.18h6.11v3.541s.005.18.064.445c-4.48.514-7.666 1.766-7.666 3.235 0 1.549 3.513 2.868 8.272 3.321v7.199h5.567v-7.182c4.646-.484 8.047-1.787 8.047-3.338 0-1.458-3.094-2.698-7.489-3.235zm-3.324 4.808a34.735 34.735 0 01-6.732-2.13c1.78-.962 4.49-1.58 7.502-1.71v3.834c-.258.004-.516.006-.77.006zm0 0c.264 0 .53-.002.793-.006V19.03c3.08.118 5.86.738 7.684 1.716a34.425 34.425 0 01-8.477 2.13z"/></svg></div>
+              <div>
+                <div class="amount-label">Exact amount to send</div>
+                <div class="amount-value">€<span class="price-display">—</span> USDT</div>
+              </div>
+            </div>
+            <div class="amount-badge">USDT</div>
+          </div>
+          <div class="warn-box">
+            <div class="warn-icon">⚠️</div>
+            <div class="warn-text">Send <strong>only USDT on the TRC20 (Tron) network</strong>. Sending on the wrong network will result in <strong>permanent loss of funds</strong>.</div>
+          </div>
+        </div>
+
+        <!-- ERC20 -->
+        <div class="send-panel" id="panel-erc20">
+          <div class="send-layout">
+            <div class="qr-col">
+              <div class="qr-card">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=0xf0d533ab29bdf9eeff169a881c38031e0df6fc37" alt="USDT ERC20 QR Code" loading="lazy" width="144" height="144" />
+              </div>
+            </div>
+            <div class="addr-col">
+              <div class="addr-chip"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" style="vertical-align: middle;"><path fill="#26A17B" d="M20 40c11.046 0 20-8.954 20-20S31.046 0 20 0 0 8.954 0 20s8.954 20 20 20z"/><path fill="#fff" d="M23.324 18.067c.05-.286.07-.464.07-.464v-3.522h6.142v-2.18H10.42v2.18h6.11v3.541s.005.18.064.445c-4.48.514-7.666 1.766-7.666 3.235 0 1.549 3.513 2.868 8.272 3.321v7.199h5.567v-7.182c4.646-.484 8.047-1.787 8.047-3.338 0-1.458-3.094-2.698-7.489-3.235zm-3.324 4.808a34.735 34.735 0 01-6.732-2.13c1.78-.962 4.49-1.58 7.502-1.71v3.834c-.258.004-.516.006-.77.006zm0 0c.264 0 .53-.002.793-.006V19.03c3.08.118 5.86.738 7.684 1.716a34.425 34.425 0 01-8.477 2.13z"/></svg>&nbsp; USDT · ERC20 Network</div>
+              <div class="addr-field" id="addr-erc20">0xf0d533ab29bdf9eeff169a881c38031e0df6fc37</div>
+              <div class="copy-row">
+                <button class="btn-copy" onclick="copyAddr('erc20')" id="copybtn-erc20">📋 Copy Address</button>
+              </div>
+            </div>
+          </div>
+          <div class="amount-card">
+            <div class="amount-left">
+              <div class="amount-icon-wrap"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" style="vertical-align: middle;"><path fill="#26A17B" d="M20 40c11.046 0 20-8.954 20-20S31.046 0 20 0 0 8.954 0 20s8.954 20 20 20z"/><path fill="#fff" d="M23.324 18.067c.05-.286.07-.464.07-.464v-3.522h6.142v-2.18H10.42v2.18h6.11v3.541s.005.18.064.445c-4.48.514-7.666 1.766-7.666 3.235 0 1.549 3.513 2.868 8.272 3.321v7.199h5.567v-7.182c4.646-.484 8.047-1.787 8.047-3.338 0-1.458-3.094-2.698-7.489-3.235zm-3.324 4.808a34.735 34.735 0 01-6.732-2.13c1.78-.962 4.49-1.58 7.502-1.71v3.834c-.258.004-.516.006-.77.006zm0 0c.264 0 .53-.002.793-.006V19.03c3.08.118 5.86.738 7.684 1.716a34.425 34.425 0 01-8.477 2.13z"/></svg></div>
+              <div>
+                <div class="amount-label">Exact amount to send</div>
+                <div class="amount-value">€<span class="price-display">—</span> USDT</div>
+              </div>
+            </div>
+            <div class="amount-badge">USDT</div>
+          </div>
+          <div class="warn-box">
+            <div class="warn-icon">⚠️</div>
+            <div class="warn-text">Send <strong>only USDT on the ERC20 (Ethereum) network</strong>. Note: Ethereum gas fees apply. Sending on the wrong network will result in <strong>permanent loss of funds</strong>.</div>
+          </div>
+        </div>
+
+        <!-- BTC -->
+        <div class="send-panel" id="panel-btc">
+          <div class="send-layout">
+            <div class="qr-col">
+              <div class="qr-card">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=13zAamZCJbnqsDeLqB8GhKqM9PHbVac91r" alt="Bitcoin QR Code" loading="lazy" width="144" height="144" />
+              </div>
+            </div>
+            <div class="addr-col">
+              <div class="addr-chip"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.2em" height="1.2em" style="vertical-align: middle;" fill="none"><circle cx="12" cy="12" r="12" fill="#F7931A"/><path fill="#FFF" d="M16.14 10.632c.319-2.138-1.282-3.284-3.447-4.032l.707-2.836-1.725-.43-.692 2.774a38.48 38.48 0 00-1.385-.345l.696-2.793-1.725-.43-.706 2.834c-.382-.084-.775-.165-1.171-.247v.006L4.35 4.542l-.599 2.406s1.265.293 1.24.31a.885.885 0 01.768 1.05l-1.523 6.11a.586.586 0 01-.19.349c-.068.046-.24.116-.549.039.02.022-1.24-.31-1.24-.31l-1.092 2.658 2.215.551c.408.102.809.213 1.206.315l-.715 2.871 1.725.43.706-2.834c.48.132.946.257 1.402.378l-.698 2.802 1.725.43.715-2.868c2.923.557 5.127.334 6.059-2.315.75-2.133-.042-3.363-1.573-4.162 1.121-.258 1.961-1 2.186-2.522zM12.63 15.51c-.69 2.771-5.322 1.272-6.824.9l1.21-4.856c1.503.375 6.335.918 5.613 3.956zm.609-5.123c-.628 2.52-4.498 1.192-5.758.878l1.09-4.375c1.26.314 5.32.742 4.668 3.497z"/></svg>&nbsp; Bitcoin · BTC Network</div>
+              <div class="addr-field" id="addr-btc">13zAamZCJbnqsDeLqB8GhKqM9PHbVac91r</div>
+              <div class="copy-row">
+                <button class="btn-copy" onclick="copyAddr('btc')" id="copybtn-btc">📋 Copy Address</button>
+              </div>
+            </div>
+          </div>
+          <div class="amount-card">
+            <div class="amount-left">
+              <div class="amount-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.2em" height="1.2em" style="vertical-align: middle;" fill="none"><circle cx="12" cy="12" r="12" fill="#F7931A"/><path fill="#FFF" d="M16.14 10.632c.319-2.138-1.282-3.284-3.447-4.032l.707-2.836-1.725-.43-.692 2.774a38.48 38.48 0 00-1.385-.345l.696-2.793-1.725-.43-.706 2.834c-.382-.084-.775-.165-1.171-.247v.006L4.35 4.542l-.599 2.406s1.265.293 1.24.31a.885.885 0 01.768 1.05l-1.523 6.11a.586.586 0 01-.19.349c-.068.046-.24.116-.549.039.02.022-1.24-.31-1.24-.31l-1.092 2.658 2.215.551c.408.102.809.213 1.206.315l-.715 2.871 1.725.43.706-2.834c.48.132.946.257 1.402.378l-.698 2.802 1.725.43.715-2.868c2.923.557 5.127.334 6.059-2.315.75-2.133-.042-3.363-1.573-4.162 1.121-.258 1.961-1 2.186-2.522zM12.63 15.51c-.69 2.771-5.322 1.272-6.824.9l1.21-4.856c1.503.375 6.335.918 5.613 3.956zm.609-5.123c-.628 2.52-4.498 1.192-5.758.878l1.09-4.375c1.26.314 5.32.742 4.668 3.497z"/></svg></div>
+              <div>
+                <div class="amount-label">USD equivalent to send in BTC</div>
+                <div class="amount-value">€<span class="price-display">—</span> worth of BTC</div>
+              </div>
+            </div>
+            <div class="amount-badge">BTC</div>
+          </div>
+          <div class="warn-box">
+            <div class="warn-icon">⚠️</div>
+            <div class="warn-text">Send <strong>only Bitcoin (BTC)</strong> to this address. Do not send any other coin or token.</div>
+          </div>
+        </div>
+
+        <!-- LTC -->
+        <div class="send-panel" id="panel-ltc">
+          <div class="warn-box" style="margin-bottom:24px;">
+            <div class="warn-icon">ℹ️</div>
+            <div class="warn-text" style="color:#bfdbfe;">For <strong>Litecoin (LTC)</strong> payments, please contact us directly via WhatsApp or Telegram. We will send you our LTC address instantly.</div>
+          </div>
+        </div>
+
+        <hr class="pay-divider" />
+
+        <!-- ── STEP 3: Confirm ──────────────────────────── -->
+        <div class="section-title">Confirm your payment</div>
+        <div class="section-sub">After sending, contact us with your transaction screenshot for instant activation</div>
+
+        <div class="confirm-card">
+          ✅ Once you have sent the payment, <strong>contact us directly</strong> with a screenshot of your transaction. We will activate your subscription <strong>within 30 minutes</strong> — usually in under 5 minutes.
+        </div>
+
+        <div class="contact-grid">
+          <a href="#" class="btn-wa" id="waBtn" target="_blank" rel="noopener">
+            <span class="payment-btn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1.2em" height="1.2em" style="vertical-align: middle;"><path d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.85-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.264 8.264 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81c-.23-.08-.39-.12-.56.12c-.17.25-.64.81-.78.97c-.14.17-.29.19-.54.06c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43c.12-.14.17-.25.25-.41c.08-.17.04-.31-.02-.43c-.06-.12-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31c-.22.25-.86.85-.86 2.07c0 1.22.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74c.59.26 1.05.41 1.41.52c.59.19 1.13.16 1.56.1c.48-.07 1.47-.6 1.67-1.18c.2-.58.2-1.08.14-1.18a.5.5 0 0 0-.34-.11z"/></svg></span>
+            <span>Send via WhatsApp</span>
+          </a>
+          <a href="#" class="btn-tg" id="tgBtn" target="_blank" rel="noopener">
+            <span class="payment-btn-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1.2em" height="1.2em" style="vertical-align: middle;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19c-.14.75-.42 1-.68 1.03c-.58.05-1.02-.38-1.58-.75c-.88-.58-1.38-.94-2.23-1.5c-.99-.65-.35-1.01.22-1.59c.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02c-.09.02-1.49.95-4.22 2.79c-.4.27-.76.41-1.08.4c-.36-.01-1.04-.2-1.55-.37c-.63-.2-1.12-.31-1.08-.66c.02-.18.27-.36.74-.55c2.92-1.27 4.86-2.11 5.83-2.51c2.78-1.16 3.35-1.36 3.73-1.36c.08 0 .27.02.39.12c.1.08.13.19.14.27c-.01.06.01.24 0 .38z"/></svg></span>
+            <span>Send via Telegram</span>
+          </a>
+        </div>
+
+        <div class="screenshot-hint">
+          📸 &nbsp;<span>Simply send us a <strong>screenshot of your transaction</strong> and we activate your subscription — typically within 30 minutes.</span>
+        </div>
+
+        <!-- What Happens Next -->
+        <div class="timeline-area">
+          <div class="timeline-title">What happens next?</div>
+          <div class="wn-timeline">
+            <div class="wn-step">
+              <div class="wn-icon">📸</div>
+              <div class="wn-text">
+                <strong>Send Screenshot</strong>
+                Via WhatsApp or Telegram
+              </div>
+            </div>
+            <div class="wn-step">
+              <div class="wn-icon wn-icon-green">⏳</div>
+              <div class="wn-text">
+                <strong>We Verify Payment</strong>
+                Usually under 30 minutes
+              </div>
+            </div>
+            <div class="wn-step">
+              <div class="wn-icon wn-icon-purple">🔗</div>
+              <div class="wn-text">
+                <strong>Receive M3U Link</strong>
+                Your activation is complete!
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /payment-body -->
+    </main>
+
+  </div><!-- /cp-inner -->
+
+  <!-- Trust Strip -->
+  <div class="trust-strip" style="width:100%; max-width:1100px;">
+    <div class="trust-item">
+      <div class="trust-item-icon ti-green">🔒</div>
+      <div class="trust-item-text">
+        <span class="trust-item-main">Secure &amp; Anonymous</span>
+        <span class="trust-item-sub">No personal data required</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-item-icon ti-blue">⚡</div>
+      <div class="trust-item-text">
+        <span class="trust-item-main">Activated in 30 min</span>
+        <span class="trust-item-sub">Usually under 5 minutes</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-item-icon ti-amber"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1.2em" height="1.2em" style="vertical-align: middle;"><path d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.85-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.264 8.264 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81c-.23-.08-.39-.12-.56.12c-.17.25-.64.81-.78.97c-.14.17-.29.19-.54.06c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43c.12-.14.17-.25.25-.41c.08-.17.04-.31-.02-.43c-.06-.12-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31c-.22.25-.86.85-.86 2.07c0 1.22.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74c.59.26 1.05.41 1.41.52c.59.19 1.13.16 1.56.1c.48-.07 1.47-.6 1.67-1.18c.2-.58.2-1.08.14-1.18a.5.5 0 0 0-.34-.11z"/></svg></div>
+      <div class="trust-item-text">
+        <span class="trust-item-main">24/7 Support</span>
+        <span class="trust-item-sub">WhatsApp &amp; Telegram</span>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-item-icon ti-purple">🔄</div>
+      <div class="trust-item-text">
+        <span class="trust-item-main">Money-Back Guarantee</span>
+        <span class="trust-item-sub">7-day refund policy</span>
+      </div>
+    </div>
+  </div><!-- /trust-strip -->
+
+  <!-- Help Bar -->
+  <div class="help-bar" style="width:100%; max-width:1100px;">
+    <span class="help-bar-text">Need help with your payment?</span>
+    <a href="https://wa.me/33600000000" class="btn-help-wa" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1.2em" height="1.2em" style="vertical-align: middle;"><path d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.85-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.264 8.264 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81c-.23-.08-.39-.12-.56.12c-.17.25-.64.81-.78.97c-.14.17-.29.19-.54.06c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43c.12-.14.17-.25.25-.41c.08-.17.04-.31-.02-.43c-.06-.12-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31c-.22.25-.86.85-.86 2.07c0 1.22.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74c.59.26 1.05.41 1.41.52c.59.19 1.13.16 1.56.1c.48-.07 1.47-.6 1.67-1.18c.2-.58.2-1.08.14-1.18a.5.5 0 0 0-.34-.11z"/></svg> WhatsApp Support</a>
+    <a href="https://t.me/streameuproiptv" class="btn-help-tg" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1.2em" height="1.2em" style="vertical-align: middle;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19c-.14.75-.42 1-.68 1.03c-.58.05-1.02-.38-1.58-.75c-.88-.58-1.38-.94-2.23-1.5c-.99-.65-.35-1.01.22-1.59c.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02c-.09.02-1.49.95-4.22 2.79c-.4.27-.76.41-1.08.4c-.36-.01-1.04-.2-1.55-.37c-.63-.2-1.12-.31-1.08-.66c.02-.18.27-.36.74-.55c2.92-1.27 4.86-2.11 5.83-2.51c2.78-1.16 3.35-1.36 3.73-1.36c.08 0 .27.02.39.12c.1.08.13.19.14.27c-.01.06.01.24 0 .38z"/></svg> Telegram Support</a>
+  </div><!-- /help-bar -->
+
+</div><!-- /cp-page -->
+
+<!-- Footer -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="display:inline-flex;margin-bottom:var(--sp-16);">
+          <div class="nav-logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#3b82f6" width="1.2em" height="1.2em" style="vertical-align: middle;"><path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12z"/></svg></div>
+          StreamEU<span class="text-accent">Pro</span>
+        </a>
+        <p>Premium IPTV subscriptions for Europe. 25,000+ channels, 4K quality, anti-freeze technology.</p>
+        <div class="footer-socials">
+          <a href="https://wa.me/33600000000" class="footer-social-link" aria-label="WhatsApp"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1.2em" height="1.2em" style="vertical-align: middle;"><path d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.85-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.264 8.264 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81c-.23-.08-.39-.12-.56.12c-.17.25-.64.81-.78.97c-.14.17-.29.19-.54.06c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43c.12-.14.17-.25.25-.41c.08-.17.04-.31-.02-.43c-.06-.12-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31c-.22.25-.86.85-.86 2.07c0 1.22.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74c.59.26 1.05.41 1.41.52c.59.19 1.13.16 1.56.1c.48-.07 1.47-.6 1.67-1.18c.2-.58.2-1.08.14-1.18a.5.5 0 0 0-.34-.11z"/></svg></a>
+          <a href="https://t.me/streameuproiptv" class="footer-social-link" aria-label="Telegram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1.2em" height="1.2em" style="vertical-align: middle;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19c-.14.75-.42 1-.68 1.03c-.58.05-1.02-.38-1.58-.75c-.88-.58-1.38-.94-2.23-1.5c-.99-.65-.35-1.01.22-1.59c.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02c-.09.02-1.49.95-4.22 2.79c-.4.27-.76.41-1.08.4c-.36-.01-1.04-.2-1.55-.37c-.63-.2-1.12-.31-1.08-.66c.02-.18.27-.36.74-.55c2.92-1.27 4.86-2.11 5.83-2.51c2.78-1.16 3.35-1.36 3.73-1.36c.08 0 .27.02.39.12c.1.08.13.19.14.27c-.01.06.01.24 0 .38z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a class="footer-link" href="pricing.html">Plans &amp; Pricing</a></li>
+          <li><a class="footer-link" href="channels.html">All Channels</a></li>
+          <li><a class="footer-link" href="free-trial.html">Free Trial</a></li>
+          <li><a class="footer-link" href="support.html">Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul class="footer-links">
+          <li><a class="footer-link" href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a class="footer-link" href="privacy.html">Privacy Policy</a></li>
+          <li><a class="footer-link" href="refund.html">Refund Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="https://wa.me/33600000000" class="footer-contact-item"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1.2em" height="1.2em" style="vertical-align: middle;"><path d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.85-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.264 8.264 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81c-.23-.08-.39-.12-.56.12c-.17.25-.64.81-.78.97c-.14.17-.29.19-.54.06c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43c.12-.14.17-.25.25-.41c.08-.17.04-.31-.02-.43c-.06-.12-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31c-.22.25-.86.85-.86 2.07c0 1.22.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74c.59.26 1.05.41 1.41.52c.59.19 1.13.16 1.56.1c.48-.07 1.47-.6 1.67-1.18c.2-.58.2-1.08.14-1.18a.5.5 0 0 0-.34-.11z"/></svg></span> WhatsApp Support</a>
+        <a href="https://t.me/streameuproiptv" class="footer-contact-item"><span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="1.2em" height="1.2em" style="vertical-align: middle;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19c-.14.75-.42 1-.68 1.03c-.58.05-1.02-.38-1.58-.75c-.88-.58-1.38-.94-2.23-1.5c-.99-.65-.35-1.01.22-1.59c.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02c-.09.02-1.49.95-4.22 2.79c-.4.27-.76.41-1.08.4c-.36-.01-1.04-.2-1.55-.37c-.63-.2-1.12-.31-1.08-.66c.02-.18.27-.36.74-.55c2.92-1.27 4.86-2.11 5.83-2.51c2.78-1.16 3.35-1.36 3.73-1.36c.08 0 .27.02.39.12c.1.08.13.19.14.27c-.01.06.01.24 0 .38z"/></svg></span> Telegram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 StreamEU Pro. Premium IPTV subscriptions for Europe.</p>
+      <div class="footer-bottom-links">
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="refund.html">Refund</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="scrollTop" class="scroll-top" aria-label="Scroll to top">↑</button>
+<script src="js/bundle.min.js" defer></script>
+
+<script>
+/* ── Read URL params ─────────────────────────────────────── */
+const p         = new URLSearchParams(window.location.search);
+const planName  = p.get('plan')  || '6 Months';
+const planPrice = p.get('price') || '47';
+const WA        = '33600000000';
+const TG        = 'streameuproiptv';
+
+/* ── Populate ────────────────────────────────────────────── */
+document.getElementById('summaryPlan').textContent  = planName;
+document.getElementById('summaryPrice').textContent = planPrice;
+document.querySelectorAll('.price-display').forEach(el => el.textContent = planPrice);
+
+const msg = encodeURIComponent(`Hi, I just sent my crypto payment for the ${planName} plan (€${planPrice}). Here is my transaction screenshot.`);
+document.getElementById('waBtn').href = `https://wa.me/${WA}?text=${msg}`;
+document.getElementById('tgBtn').href  = `https://t.me/${TG}?text=${msg}`;
+
+/* ── Network switching ───────────────────────────────────── */
+const netCards = document.querySelectorAll('.net-card');
+const panels   = document.querySelectorAll('.send-panel');
+const stab1 = document.getElementById('stab1');
+const stab2 = document.getElementById('stab2');
+const stab3 = document.getElementById('stab3');
+
+netCards.forEach(card => {
+  card.addEventListener('click', () => switchNet(card.dataset.net));
+  card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') switchNet(card.dataset.net); });
+});
+
+function switchNet(net) {
+  netCards.forEach(c => { c.classList.remove('active'); c.setAttribute('aria-checked','false'); });
+  panels.forEach(p => p.classList.remove('visible'));
+
+  const card  = document.querySelector(`.net-card[data-net="${net}"]`);
+  const panel = document.getElementById(`panel-${net}`);
+  if (card)  { card.classList.add('active');  card.setAttribute('aria-checked','true'); }
+  if (panel) { panel.classList.add('visible'); }
+
+  // Advance step tabs
+  stab1.classList.remove('active'); stab1.classList.add('done');
+  stab2.classList.add('active');
+  stab3.classList.add('active');
+}
+
+/* ── Copy address ────────────────────────────────────────── */
+function copyAddr(net) {
+  const el  = document.getElementById(`addr-${net}`);
+  const btn = document.getElementById(`copybtn-${net}`);
+  const txt = el?.textContent.trim() || '';
+
+  if (!txt || txt.startsWith('Contact')) {
+    const ltcMsg = encodeURIComponent(`Hi, I want to pay with Litecoin (LTC) for the ${planName} plan (€${planPrice}). Please send me your LTC address.`);
+    window.open(`https://wa.me/${WA}?text=${ltcMsg}`, '_blank');
+    return;
+  }
+
+  const doCopy = () => {
+    btn.innerHTML = '✓ Copied!';
+    btn.classList.add('copied');
+    // Mark step 2 done
+    stab2.classList.remove('active'); stab2.classList.add('done');
+    setTimeout(() => { btn.innerHTML = '📋 Copy Address'; btn.classList.remove('copied'); }, 2500);
+  };
+
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(txt).then(doCopy).catch(() => fallbackCopy(txt, doCopy));
+  } else {
+    fallbackCopy(txt, doCopy);
+  }
+}
+
+function fallbackCopy(text, cb) {
+  const ta = Object.assign(document.createElement('textarea'), {
+    value: text, style: 'position:fixed;opacity:0'
+  });
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); cb(); } catch(e){}
+  document.body.removeChild(ta);
+}
+
+window.copyAddr = copyAddr;
+</script>
+</body>
+</html>
