@@ -1,4 +1,4 @@
-﻿/* ================================================================
+/* ================================================================
    BASE.CSS — Design Tokens, Reset & Typography
    IPTV Mate | IPTV Europe
    ================================================================ */
@@ -441,13 +441,6 @@ strong { color: var(--text-heading); font-weight: 600; }
 .plan-price .amount { font-size: 3rem; font-weight: 800; color: var(--text-heading); line-height: 1; font-family: var(--font-heading); }
 .plan-price .period { font-size: 0.9rem; color: var(--text-muted); padding-bottom: 0.3rem; }
 
-.plan-total {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  margin-bottom: var(--sp-24);
-}
-.plan-total span { color: var(--emerald); font-weight: 600; }
-
 .plan-features {
   flex: 1;
   display: flex;
@@ -631,62 +624,10 @@ strong { color: var(--text-heading); font-weight: 600; }
 }
 .badge-blue   { background: var(--accent-bg); color: var(--accent); border: 1px solid var(--border-accent); }
 .badge-green  { background: var(--emerald-bg); color: var(--emerald); border: 1px solid rgba(16,185,129,0.3); }
-.badge-amber  { background: var(--amber-bg); color: var(--amber); border: 1px solid rgba(245,158,11,0.3); }
-.badge-purple { background: rgba(139,92,246,0.1); color: var(--purple); border: 1px solid rgba(139,92,246,0.3); }
 
 /* ── Form Elements ───────────────────────────────────────────── */
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: var(--sp-8);
-}
-.form-label {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text-body);
-}
-.form-input, .form-textarea, .form-select {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  background: var(--bg-card);
-  border: 1.5px solid var(--border-strong);
-  border-radius: var(--r-md);
-  color: var(--text-heading);
-  font-size: 0.95rem;
-  transition: all var(--transition-base);
-  appearance: none;
-}
-.form-input:focus, .form-textarea:focus, .form-select:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-bg);
-}
-.form-input::placeholder, .form-textarea::placeholder {
-  color: var(--text-muted);
-}
-.form-textarea { resize: vertical; min-height: 120px; }
 
 /* ── Step Items ──────────────────────────────────────────────── */
-.step-item {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--sp-20);
-}
-.step-number {
-  width: 52px;
-  height: 52px;
-  border-radius: var(--r-full);
-  background: linear-gradient(135deg, var(--accent), var(--purple));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1.1rem;
-  color: #fff;
-  flex-shrink: 0;
-  box-shadow: 0 4px 16px var(--accent-glow);
-}
 
 /* ── Channel Category Cards ──────────────────────────────────── */
 .channel-cat-card {
@@ -789,7 +730,6 @@ strong { color: var(--text-heading); font-weight: 600; }
 }
 .notice-blue  { background: var(--accent-bg); border: 1px solid var(--border-accent); color: var(--text-body); }
 .notice-green { background: var(--emerald-bg); border: 1px solid rgba(16,185,129,0.3); color: var(--text-body); }
-.notice-amber { background: var(--amber-bg); border: 1px solid rgba(245,158,11,0.3); color: var(--text-body); }
 
 /* ── Comparison Table ────────────────────────────────────────── */
 .compare-table {
@@ -1043,7 +983,6 @@ strong { color: var(--text-heading); font-weight: 600; }
 
 /* ── Grids ───────────────────────────────────────────────────── */
 .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-24); }
-.pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-20); align-items: stretch; }
 .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-24); }
 .devices-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--sp-16); }
 .stats-grid {
@@ -1088,19 +1027,6 @@ strong { color: var(--text-heading); font-weight: 600; }
 .step-card p { font-size: 0.85rem; color: var(--text-muted); }
 
 /* ── Pricing Toggle ──────────────────────────────────────────── */
-.pricing-toggle-wrap {
-  display: flex; align-items: center; justify-content: center;
-  gap: var(--sp-16); margin-bottom: var(--sp-48);
-}
-.billing-label { font-family: var(--font-heading); font-size: 0.9rem; font-weight: 500; color: var(--text-muted); cursor: pointer; transition: color var(--transition-fast); }
-.billing-label.active { color: var(--text-heading); }
-.toggle-switch { position: relative; width: 52px; height: 28px; cursor: pointer; }
-.toggle-switch input { opacity: 0; width: 0; height: 0; }
-.toggle-slider { position: absolute; inset: 0; background: var(--border-strong); border-radius: var(--r-full); transition: background var(--transition-base); }
-.toggle-slider::before { content: ''; position: absolute; width: 20px; height: 20px; left: 4px; top: 4px; background: #fff; border-radius: var(--r-full); transition: transform var(--transition-base); }
-.toggle-switch input:checked + .toggle-slider { background: var(--accent); }
-.toggle-switch input:checked + .toggle-slider::before { transform: translateX(24px); }
-.billing-save-badge { background: var(--amber-bg); color: var(--amber); border: 1px solid rgba(245,158,11,0.3); padding: 0.2rem 0.6rem; border-radius: var(--r-full); font-size: 0.72rem; font-weight: 700; }
 
 /* ── CTA Banner ──────────────────────────────────────────────── */
 .cta-banner {
@@ -1119,8 +1045,6 @@ strong { color: var(--text-heading); font-weight: 600; }
 .cta-banner h2 { margin-bottom: var(--sp-16); }
 .cta-banner p { color: var(--text-muted); margin-bottom: var(--sp-32); font-size: 1.05rem; }
 .cta-banner-actions { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: var(--sp-16); }
-.lead-form { display: flex; gap: var(--sp-12); max-width: 480px; margin: 0 auto var(--sp-20); }
-.lead-form .form-input { flex: 1; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.12); }
 
 /* ── Footer ──────────────────────────────────────────────────── */
 .footer { background: #070707; border-top: 1px solid var(--border-subtle); padding: var(--sp-64) 0 var(--sp-32); }
@@ -1174,7 +1098,6 @@ strong { color: var(--text-heading); font-weight: 600; }
   .hero-content { max-width: 100%; }
   .hero-flag-row, .hero-ctas, .hero-stats { justify-content: center; }
   .hero-visual { display: none; }
-  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: var(--sp-32); }
   .devices-grid { grid-template-columns: repeat(3, 1fr); }
 }
@@ -1191,11 +1114,9 @@ strong { color: var(--text-heading); font-weight: 600; }
   .nav-actions .btn { display: none; }
   .hamburger { display: flex; }
   .hero-float-badge { display: none; }
-  .pricing-grid { grid-template-columns: 1fr; }
   .pricing-card.featured { transform: none; }
   .footer-grid { grid-template-columns: 1fr; }
   .cta-banner { padding: var(--sp-48) var(--sp-24); }
-  .lead-form { flex-direction: column; }
 }
 @media (max-width: 480px) {
   .container { padding: 0 var(--sp-16); }
@@ -1215,17 +1136,11 @@ strong { color: var(--text-heading); font-weight: 600; }
 }
 .resp-two-col--align-center { align-items: center; }
 .resp-two-col--max-1000 { max-width: 1000px; margin: 0 auto; }
-.resp-form-cols {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--sp-16);
-}
 @media (max-width: 900px) {
   .resp-two-col { gap: var(--sp-40); }
 }
 @media (max-width: 768px) {
   .resp-two-col { grid-template-columns: 1fr; gap: var(--sp-32); }
-  .resp-form-cols { grid-template-columns: 1fr; }
 }
 
 /* ================================================================
@@ -1316,27 +1231,13 @@ strong { color: var(--text-heading); font-weight: 600; }
 .hero-float-badge { animation: float 3s ease-in-out infinite; }
 
 /* Gradient animated heading */
-.gradient-text {
-  background: linear-gradient(135deg, var(--accent), var(--purple), var(--emerald), var(--accent));
-  background-size: 300% 300%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradient-shift 5s ease infinite;
-}
 
 /* Pulse CTA */
 .btn-pulse { animation: pulse-ring 2s ease-out infinite; }
 
 /* Glow card */
-.glow-card { animation: glow-pulse 3s ease-in-out infinite; }
 
 /* Shimmer loading state */
-.shimmer {
-  background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-card-hover) 50%, var(--bg-card) 75%);
-  background-size: 400px 100%;
-  animation: shimmer 1.2s ease-in-out infinite;
-}
 
 /* ── Micro-interactions ──────────────────────────────────────── */
 
@@ -1355,23 +1256,10 @@ strong { color: var(--text-heading); font-weight: 600; }
 .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
 
 /* Icon bounce on hover */
-.icon-bounce { transition: transform var(--transition-base); }
-.icon-bounce:hover { transform: scale(1.15) rotate(-5deg); }
 
 /* Card lift */
-.lift { transition: transform var(--transition-base), box-shadow var(--transition-base); }
-.lift:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 
 /* Progress bar */
-.progress-bar {
-  height: 3px;
-  background: linear-gradient(90deg, var(--accent), var(--purple));
-  border-radius: var(--r-full);
-  transform-origin: left;
-  transform: scaleX(0);
-  transition: transform 1s ease;
-}
-.progress-bar.active { transform: scaleX(1); }
 
 /* ── Scroll-to-top button ────────────────────────────────────── */
 .scroll-top {

@@ -1,4 +1,4 @@
-﻿/* ================================================================
+/* ================================================================
    MAIN.JS — Sticky Nav, Smooth Scroll, Mobile Menu, Theme Toggle
    IPTV Mate | IPTV Europe
    ================================================================ */
@@ -86,21 +86,6 @@
     sections.forEach(s => observer.observe(s));
   }
 
-  // ── Theme Toggle ───────────────────────────────────────────────
-  const themeToggle = document.getElementById('themeToggle');
-  const themeIcon = document.getElementById('themeIcon');
-  const storedTheme = localStorage.getItem('iptv-theme') || 'dark';
-  document.documentElement.setAttribute('data-theme', storedTheme);
-  if (themeIcon) themeIcon.textContent = storedTheme === 'dark' ? '☀️' : '🌙';
-  if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('iptv-theme', next);
-      if (themeIcon) themeIcon.textContent = next === 'dark' ? '☀️' : '🌙';
-    });
-  }
 
   // ── Animated counters ─────────────────────────────────────────
   function animateCounter(el) {

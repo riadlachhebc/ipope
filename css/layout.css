@@ -19,9 +19,7 @@
   padding: var(--sp-12) 0;
   box-shadow: 0 4px 24px rgba(0,0,0,0.4);
 }
-[data-theme="light"] .navbar.scrolled {
-  background: rgba(248,250,252,0.95);
-}
+
 .nav-inner {
   display: flex;
   align-items: center;

@@ -1,4 +1,4 @@
-﻿/* ================================================================
+/* ================================================================
    BASE.CSS — Design Tokens, Reset & Typography
    IPTV Mate | IPTV Europe
    ================================================================ */
@@ -89,20 +89,6 @@
   --container:   1200px;
 }
 
-/* Light Theme Override */
-[data-theme="light"] {
-  --bg-base:       #f8fafc;
-  --bg-section:    #f1f5f9;
-  --bg-card:       #ffffff;
-  --bg-card-hover: #f8fafc;
-  --bg-overlay:    rgba(248,250,252,0.92);
-  --border-subtle: #e2e8f0;
-  --border-strong: #cbd5e1;
-  --text-heading:  #0f172a;
-  --text-body:     #374151;
-  --text-muted:    #6b7280;
-  --shadow-card:   0 4px 24px rgba(0,0,0,0.08);
-}
 
 /* ── Reset ───────────────────────────────────────────────────── */
 *, *::before, *::after {
