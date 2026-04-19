@@ -1,0 +1,10 @@
+﻿User-agent: *
+Allow: /
+
+# Disallow legal pages from being crawled deeply
+Disallow: /terms.html
+Disallow: /privacy.html
+Disallow: /refund.html
+
+# Sitemap
+Sitemap: https://www.iptvmateeu.com/sitemap.xml

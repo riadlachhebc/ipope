@@ -1,0 +1,218 @@
+/* ================================================================
+   PRICING.CSS — Interactive Connection Switcher & Plan Updates
+   ================================================================ */
+
+:root {
+  --conn-bg: #1a1a2e;
+  --conn-active: #22c55e;
+  --conn-inactive: #27272a;
+  --price-red: #e11d48;
+  --price-green: #22c55e;
+  --price-gold: #d4af37;
+}
+
+/* ── Price Flip Animation ─────────────────────────────────────── */
+@keyframes priceFlipIn {
+  0%   { opacity: 0; transform: translateY(-14px) scale(0.92); }
+  60%  { opacity: 1; transform: translateY(3px) scale(1.03); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.amount.animating {
+  animation: priceFlipIn 0.32s cubic-bezier(.22,.68,0,1.2) both;
+}
+
+/* ── Connection Selector ─────────────────────────────────────── */
+.conn-selector-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--sp-12);
+  margin-bottom: var(--sp-48);
+  flex-wrap: wrap;
+}
+
+.conn-btn {
+  background: var(--conn-inactive);
+  color: #fff;
+  border: 1.5px solid var(--border-strong);
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--r-full);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.conn-btn:hover {
+  border-color: var(--conn-active);
+  transform: translateY(-2px);
+}
+
+.conn-btn.active {
+  background: var(--conn-active);
+  color: #fff;
+  border-color: var(--conn-active);
+  box-shadow: 0 0 20px rgba(34,197,94,0.3);
+}
+
+/* ── Pricing Card Refinement ─────────────────────────────────── */
+.pricing-grid--3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-32);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (max-width: 991px) {
+  .pricing-grid--3 {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+  }
+}
+
+.pricing-card--updated {
+  border-width: 2px;
+  background: #0f172a; /* Slightly deeper blue-grey from image */
+}
+
+.pricing-card--updated .plan-name {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #fff;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--sp-8);
+}
+
+.pricing-card--updated .plan-conn-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: var(--sp-24);
+}
+
+.pricing-card--updated .plan-price .amount {
+  font-size: 4.2rem;
+  letter-spacing: -0.02em;
+}
+
+.pricing-card--updated .plan-price .currency {
+  font-size: 2.2rem;
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+.pricing-card--updated .plan-price .period {
+  font-size: 1.1rem;
+}
+
+/* Custom Badges */
+.badge-best-value {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.badge-premium {
+  background: #b45309;
+  color: #fff;
+}
+
+/* 12 Months Gold Variant */
+.pricing-card--gold {
+  border-color: var(--price-gold);
+  box-shadow: 0 0 20px rgba(212,175,55,0.1);
+}
+.pricing-card--gold .amount, 
+.pricing-card--gold .currency,
+.pricing-card--gold .period {
+  color: var(--price-gold) !important;
+}
+
+/* ── Plan CTAs: stacked vertical buttons ─────────────────────── */
+.plan-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: var(--sp-24);
+}
+
+/* ── Buttons ─────────────────────────────────────────────────── */
+
+/* WhatsApp — green (top, primary action) */
+.btn-whatsapp-order {
+  background: var(--price-green);
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  display: block;
+  border-radius: var(--r-full);
+  padding: 0.85rem 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  transition: all var(--transition-base);
+  text-decoration: none;
+}
+.btn-whatsapp-order:hover {
+  background: #16a34a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(34,197,94,0.4);
+  color: #fff;
+}
+
+/* Crypto — Bitcoin orange gradient (bottom, secondary action) */
+.btn-crypto-pay {
+  background: linear-gradient(135deg, #f7931a 0%, #e8650a 50%, #f59e0b 100%);
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  display: block;
+  border-radius: var(--r-full);
+  padding: 0.85rem 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  transition: all var(--transition-base);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+.btn-crypto-pay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+.btn-crypto-pay:hover::before {
+  transform: translateX(100%);
+}
+.btn-crypto-pay:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(247,147,26,0.5);
+  color: #fff;
+}
+
+/* Legacy alias — keep in case any page still uses btn-buy-now */
+.btn-buy-now {
+  background: linear-gradient(135deg, #f7931a 0%, #e8650a 50%, #f59e0b 100%);
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  display: block;
+  border-radius: var(--r-full);
+  padding: 0.85rem 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all var(--transition-base);
+  text-decoration: none;
+}
+.btn-buy-now:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(247,147,26,0.5);
+  color: #fff;
+}
