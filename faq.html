@@ -20,11 +20,21 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="IPTV Mate" />
-  <meta property="og:locale" content="en_EU" />
-  <meta property="og:title" content="Frequently Asked Questions – IPTV Mate Europe" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:title" content="IPTV Europe FAQ – Setup, Channels &amp; Free Trial | IPTV Mate" />
   <meta property="og:description" content="Get all the answers you need about our IPTV subscription in Europe before you buy. Channels, tech, and compatibility detailed." />
   <meta property="og:url" content="https://www.iptvmateeu.com/faq.html" />
-  <meta property="og:image" content="https://www.iptvmateeu.com/assets/images/hero-mockup.png" />
+  <meta property="og:image" content="https://www.iptvmateeu.com/assets/images/hero-mockup.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="IPTV Europe FAQ – frequently asked questions about IPTV Mate" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@matesupports" />
+  <meta name="twitter:title" content="IPTV Europe FAQ – Setup, Channels &amp; Free Trial | IPTV Mate" />
+  <meta name="twitter:description" content="Get all the answers you need about IPTV subscriptions in Europe. Channels, tech, compatibility, and more." />
+  <meta name="twitter:image" content="https://www.iptvmateeu.com/assets/images/hero-mockup.webp" />
 
   <!-- Schema.org: FAQPage -->
   <script type="application/ld+json">
@@ -49,10 +59,8 @@
         }
       },
       {
-        "@type": {
-          "type": "Question",
-          "name": "What is the best IPTV app for Firestick and Smart TV in 2026?"
-        },
+        "@type": "Question",
+        "name": "What is the best IPTV app for Firestick and Smart TV in 2026?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "For the best experience on Firestick and Android TV, we recommend TiviMate or IPTV Smarters Pro. For LG and Samsung Smart TVs, IBO Player or Nanomid are excellent choices. All these apps support our 4K streams and EPG flawlessly."
@@ -108,12 +116,7 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
   
   <link rel="preload" href="css/purged-styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="preload" href="css/purged-styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="preload" href="css/purged-styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="preload" href="css/purged-styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="css/purged-styles.min.css"></noscript></noscript></noscript></noscript>
-  
-  <style>
+  <noscript><link rel="stylesheet" href="css/purged-styles.min.css"></noscript><style>
 /* ── CLS Prevention ──────────────────────────────────────────── */
 html { font-family: 'Poppins', Arial, sans-serif; }
 .hero { min-height: 580px; contain: layout; }
@@ -135,7 +138,7 @@ html { font-family: 'Poppins', Arial, sans-serif; }
   <link rel="dns-prefetch" href="https://api.qrserver.com" />
 
 
-  <link rel="preload" as="image" href="assets/images/hero-mockup.png" />
+  <link rel="preload" as="image" href="assets/images/hero-mockup.webp" />
 </head>
 <body>
 
@@ -145,13 +148,13 @@ html { font-family: 'Poppins', Arial, sans-serif; }
     <div class="nav-inner">
       <a href="index.html" class="nav-logo"><img loading="eager" fetchpriority="high" src="/assets/images/logo.png" alt="IPTV Mate Logo" height="48" style="display:block;" width="48"><span style="font-family:var(--font-heading);font-weight:700;font-size:1.5rem;color:#ffffff;white-space:nowrap;margin-left:12px;">IPTV Mate</span></a>
       <ul class="nav-links" role="menubar">
-          <li role="none"><a class="nav-link" href="blog/index.html" role="menuitem">Blog</a></li>
-          <li><a class="nav-link" href="index.html#features">Features</a></li>
-        <li><a class="nav-link" href="pricing.html">Plans</a></li>
-        <li><a class="nav-link" href="channels.html">Channels</a></li>
-        <li><a class="nav-link" href="iptv-sports.html">Sports</a></li>
-        <li><a class="nav-link active" href="faq.html">FAQ</a></li>
-        <li><a class="nav-link" href="support.html">Support</a></li>
+        <li role="none"><a class="nav-link" href="features.html" role="menuitem">Features</a></li>
+        <li role="none"><a class="nav-link" href="pricing.html" role="menuitem">Plans</a></li>
+        <li role="none"><a class="nav-link" href="channels.html" role="menuitem">Channels</a></li>
+        <li role="none"><a class="nav-link" href="iptv-sports.html" role="menuitem">Sports</a></li>
+        <li role="none"><a class="nav-link" href="blog/index.html" role="menuitem">Blog</a></li>
+        <li role="none"><a class="nav-link active" href="faq.html" role="menuitem">FAQ</a></li>
+        <li role="none"><a class="nav-link" href="support.html" role="menuitem">Support</a></li>
       </ul>
       <div class="nav-actions">
         <a href="free-trial.html" class="btn btn-secondary btn-sm">Free Trial</a>
@@ -161,17 +164,18 @@ html { font-family: 'Poppins', Arial, sans-serif; }
     </div>
   </div>
 </nav>
-<div id="mobileMenu" class="mobile-menu">
+<div id="mobileMenu" class="mobile-menu" role="dialog" aria-label="Mobile navigation">
   <a class="mobile-nav-link" href="index.html">Home</a>
+  <a class="mobile-nav-link" href="features.html">Features</a>
   <a class="mobile-nav-link" href="pricing.html">Plans</a>
   <a class="mobile-nav-link" href="channels.html">Channels</a>
   <a class="mobile-nav-link" href="iptv-sports.html">Sports</a>
   <a class="mobile-nav-link" href="blog/index.html">Blog</a>
-  <a class="mobile-nav-link" href="faq.html">FAQ</a>
+  <a class="mobile-nav-link active" href="faq.html">FAQ</a>
   <a class="mobile-nav-link" href="support.html">Support</a>
   <div class="mobile-menu-actions">
     <a href="free-trial.html" class="btn btn-secondary">Free Trial</a>
-    <a href="pricing.html" class="btn btn-primary">View Plans</a>
+    <a href="pricing.html" class="btn btn-primary">Get Started</a>
   </div>
 </div>
 
@@ -291,13 +295,15 @@ html { font-family: 'Poppins', Arial, sans-serif; }
       <div class="footer-col">
         <h4>Quick Links</h4>
         <ul class="footer-links">
+          <li><a class="footer-link" href="features.html">Features</a></li>
           <li><a class="footer-link" href="pricing.html">Plans &amp; Pricing</a></li>
           <li><a class="footer-link" href="channels.html">All Channels</a></li>
           <li><a class="footer-link" href="iptv-sports.html">Sports IPTV</a></li>
           <li><a class="footer-link" href="free-trial.html">Free Trial</a></li>
+          <li><a class="footer-link" href="how-it-works.html">How It Works</a></li>
           <li><a class="footer-link" href="blog/index.html">Blog</a></li>
-        
           <li><a class="footer-link" href="faq.html">FAQ</a></li>
+          <li><a class="footer-link" href="support.html">Support</a></li>
         </ul>
       </div>
       <div class="footer-col">

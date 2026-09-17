@@ -20,11 +20,11 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="IPTV Mate" />
-  <meta property="og:locale" content="en_EU" />
+  <meta property="og:locale" content="en_GB" />
   <meta property="og:title" content="25,000+ IPTV Channels Europe – Sports, Movies, Live TV" />
   <meta property="og:description" content="Explore 25,000+ IPTV channels in Europe: Premier League, international TV &amp; 100K+ VOD. HD &amp; 4K quality included in all subscriptions." />
   <meta property="og:url" content="https://www.iptvmateeu.com/channels.html" />
-  <meta property="og:image" content="https://www.iptvmateeu.com/assets/images/hero-mockup.png" />
+  <meta property="og:image" content="https://www.iptvmateeu.com/assets/images/hero-mockup.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="25,000+ IPTV channels across Europe – IPTV Mate" />
@@ -34,7 +34,7 @@
   <meta name="twitter:site" content="@matesupports" />
   <meta name="twitter:title" content="25,000+ IPTV Channels Europe – Sports, Movies, Live TV" />
   <meta name="twitter:description" content="Explore 25K+ IPTV channels in Europe: Premier League, La Liga, VOD, kids and international TV. HD &amp; 4K quality." />
-  <meta name="twitter:image" content="https://www.iptvmateeu.com/assets/images/hero-mockup.png" />
+  <meta name="twitter:image" content="https://www.iptvmateeu.com/assets/images/hero-mockup.webp" />
 
   <!-- Schema.org: WebPage + ItemList -->
   <script type="application/ld+json">
@@ -48,11 +48,7 @@
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
   <!-- CSS (minified) -->
   <link rel="preload" href="css/purged-styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="preload" href="css/purged-styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="preload" href="css/purged-styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="preload" href="css/purged-styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="css/purged-styles.min.css"></noscript></noscript></noscript></noscript>
-  <style>
+  <noscript><link rel="stylesheet" href="css/purged-styles.min.css"></noscript><style>
     .country-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:var(--sp-20); }
     @media(max-width:900px){.country-grid{grid-template-columns:repeat(2,1fr);}}
     @media(max-width:500px){.country-grid{grid-template-columns:1fr;}}
@@ -105,7 +101,7 @@ body { font-family: 'Poppins', sans-serif; }
 
 
   
-  <link rel="preload" as="image" href="assets/images/hero-mockup.png" />
+  <link rel="preload" as="image" href="assets/images/hero-mockup.webp" />
 </head>
 <body>
 
@@ -115,17 +111,15 @@ body { font-family: 'Poppins', sans-serif; }
     <div class="nav-inner">
       <a href="index.html" class="nav-logo"><img loading="eager" fetchpriority="high" src="/assets/images/logo.png" alt="IPTV Mate Logo" height="48" style="display:block;" width="48"><span style="font-family:var(--font-heading);font-weight:700;font-size:1.5rem;color:#ffffff;white-space:nowrap;margin-left:12px;">IPTV Mate</span></a>
       <ul class="nav-links" role="menubar">
-        
-          <li role="none"><a class="nav-link" href="blog/index.html" role="menuitem">Blog</a></li>
-          <li><a class="nav-link" href="index.html#features">Features</a></li>
-        <li><a class="nav-link" href="pricing.html">Plans</a></li>
-        <li><a class="nav-link active" href="channels.html">Channels</a></li>
-        <li><a class="nav-link" href="iptv-sports.html">Sports</a></li>
-        <li><a class="nav-link" href="faq.html">FAQ</a></li>
-        <li><a class="nav-link" href="support.html">Support</a></li>
+        <li role="none"><a class="nav-link" href="features.html" role="menuitem">Features</a></li>
+        <li role="none"><a class="nav-link" href="pricing.html" role="menuitem">Plans</a></li>
+        <li role="none"><a class="nav-link active" href="channels.html" role="menuitem">Channels</a></li>
+        <li role="none"><a class="nav-link" href="iptv-sports.html" role="menuitem">Sports</a></li>
+        <li role="none"><a class="nav-link" href="blog/index.html" role="menuitem">Blog</a></li>
+        <li role="none"><a class="nav-link" href="faq.html" role="menuitem">FAQ</a></li>
+        <li role="none"><a class="nav-link" href="support.html" role="menuitem">Support</a></li>
       </ul>
       <div class="nav-actions">
-        
         <a href="free-trial.html" class="btn btn-secondary btn-sm">Free Trial</a>
         <a href="pricing.html" class="btn btn-primary btn-sm">Get Started</a>
       </div>
@@ -133,18 +127,18 @@ body { font-family: 'Poppins', sans-serif; }
     </div>
   </div>
 </nav>
-<div id="mobileMenu" class="mobile-menu">
+<div id="mobileMenu" class="mobile-menu" role="dialog" aria-label="Mobile navigation">
   <a class="mobile-nav-link" href="index.html">Home</a>
-  <a class="mobile-nav-link" href="pricing.html">Plans &amp; Pricing</a>
-  <a class="mobile-nav-link" href="channels.html">All Channels</a>
+  <a class="mobile-nav-link" href="features.html">Features</a>
+  <a class="mobile-nav-link" href="pricing.html">Plans</a>
+  <a class="mobile-nav-link active" href="channels.html">Channels</a>
   <a class="mobile-nav-link" href="iptv-sports.html">Sports</a>
   <a class="mobile-nav-link" href="blog/index.html">Blog</a>
-  
   <a class="mobile-nav-link" href="faq.html">FAQ</a>
   <a class="mobile-nav-link" href="support.html">Support</a>
   <div class="mobile-menu-actions">
-    <a href="free-trial.html" class="btn btn-secondary">Start Free Trial</a>
-    <a href="pricing.html" class="btn btn-primary">View Plans</a>
+    <a href="free-trial.html" class="btn btn-secondary">Free Trial</a>
+    <a href="pricing.html" class="btn btn-primary">Get Started</a>
   </div>
 </div>
 
@@ -174,7 +168,7 @@ body { font-family: 'Poppins', sans-serif; }
     </header>
     <div class="features-grid stagger">
       <div class="channel-cat-card fade-in">
-        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/gb-eng.svg" width="18" height="13"></div>
+        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/gb-eng.svg" width="18" height="13" alt="United Kingdom flag"></div>
         <h3>UK Sports Channels</h3>
         <ul class="channel-list-mini">
           <li>Sky Sports Main Event</li>
@@ -186,7 +180,7 @@ body { font-family: 'Poppins', sans-serif; }
         </ul>
       </div>
       <div class="channel-cat-card fade-in">
-        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/es.svg" width="18" height="13"></div>
+        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/es.svg" width="18" height="13" alt="Spain flag"></div>
         <h3>Spanish Sports Channels</h3>
         <ul class="channel-list-mini">
           <li>Movistar LaLiga</li>
@@ -198,7 +192,7 @@ body { font-family: 'Poppins', sans-serif; }
         </ul>
       </div>
       <div class="channel-cat-card fade-in">
-        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/fr.svg" width="18" height="13"></div>
+        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/fr.svg" width="18" height="13" alt="France flag"></div>
         <h3>French Sports Channels</h3>
         <ul class="channel-list-mini">
           <li>Canal+ Sport</li>
@@ -210,7 +204,7 @@ body { font-family: 'Poppins', sans-serif; }
         </ul>
       </div>
       <div class="channel-cat-card fade-in">
-        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/de.svg" width="18" height="13"></div>
+        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/de.svg" width="18" height="13" alt="Germany flag"></div>
         <h3>German Sports Channels</h3>
         <ul class="channel-list-mini">
           <li>Sky Sport Bundesliga</li>
@@ -222,7 +216,7 @@ body { font-family: 'Poppins', sans-serif; }
         </ul>
       </div>
       <div class="channel-cat-card fade-in">
-        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/it.svg" width="18" height="13"></div>
+        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/it.svg" width="18" height="13" alt="Italy flag"></div>
         <h3>Italian Sports Channels</h3>
         <ul class="channel-list-mini">
           <li>DAZN Italia</li>
@@ -305,42 +299,42 @@ body { font-family: 'Poppins', sans-serif; }
     </header>
     <div class="country-grid stagger">
       <div class="channel-cat-card fade-in">
-        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/fr.svg" width="18" height="13"></div>
+        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/fr.svg" width="18" height="13" alt="France flag"></div>
         <h3>France</h3>
         <div class="channel-tags-wrap">
           <span class="channel-tag">TF1</span><span class="channel-tag">France 2</span><span class="channel-tag">M6</span><span class="channel-tag">Arte</span><span class="channel-tag">Canal+</span><span class="channel-tag">TMC</span><span class="channel-tag">W9</span><span class="channel-tag">C8</span>
         </div>
       </div>
       <div class="channel-cat-card fade-in">
-        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/de.svg" width="18" height="13"></div>
+        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/de.svg" width="18" height="13" alt="Germany flag"></div>
         <h3>Germany</h3>
         <div class="channel-tags-wrap">
           <span class="channel-tag">ARD</span><span class="channel-tag">ZDF</span><span class="channel-tag">ProSieben</span><span class="channel-tag">SAT.1</span><span class="channel-tag">RTL</span><span class="channel-tag">VOX</span><span class="channel-tag">Kabel Eins</span><span class="channel-tag">arte DE</span>
         </div>
       </div>
       <div class="channel-cat-card fade-in">
-        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/es.svg" width="18" height="13"></div>
+        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/es.svg" width="18" height="13" alt="Spain flag"></div>
         <h3>Spain</h3>
         <div class="channel-tags-wrap">
           <span class="channel-tag">La 1</span><span class="channel-tag">La 2</span><span class="channel-tag">Antena 3</span><span class="channel-tag">Telecinco</span><span class="channel-tag">Cuatro</span><span class="channel-tag">laSexta</span><span class="channel-tag">Neox</span>
         </div>
       </div>
       <div class="channel-cat-card fade-in">
-        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/it.svg" width="18" height="13"></div>
+        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/it.svg" width="18" height="13" alt="Italy flag"></div>
         <h3>Italy</h3>
         <div class="channel-tags-wrap">
           <span class="channel-tag">RAI 1</span><span class="channel-tag">RAI 2</span><span class="channel-tag">RAI 3</span><span class="channel-tag">Canale 5</span><span class="channel-tag">Italia 1</span><span class="channel-tag">Rete 4</span><span class="channel-tag">LA7</span>
         </div>
       </div>
       <div class="channel-cat-card fade-in">
-        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/gb.svg" width="18" height="13"></div>
+        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/gb.svg" width="18" height="13" alt="United Kingdom flag"></div>
         <h3>United Kingdom</h3>
         <div class="channel-tags-wrap">
           <span class="channel-tag">BBC One</span><span class="channel-tag">BBC Two</span><span class="channel-tag">ITV</span><span class="channel-tag">Channel 4</span><span class="channel-tag">Channel 5</span><span class="channel-tag">Sky One</span><span class="channel-tag">Dave</span>
         </div>
       </div>
       <div class="channel-cat-card fade-in">
-        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/nl.svg" width="18" height="13"><img loading="lazy" src="https://flagcdn.com/be.svg" width="18" height="13"><img loading="lazy" src="https://flagcdn.com/pt.svg" width="18" height="13"></div>
+        <div class="channel-cat-icon"><img loading="lazy" src="https://flagcdn.com/nl.svg" width="18" height="13" alt="Netherlands flag"><img loading="lazy" src="https://flagcdn.com/be.svg" width="18" height="13" alt="Belgium flag"><img loading="lazy" src="https://flagcdn.com/pt.svg" width="18" height="13" alt="Portugal flag"></div>
         <h3>NL / BE / PT &amp; More</h3>
         <div class="channel-tags-wrap">
           <span class="channel-tag">NPO 1 (NL)</span><span class="channel-tag">VTM (BE)</span><span class="channel-tag">RTP 1 (PT)</span><span class="channel-tag">TVP (PL)</span><span class="channel-tag">ORF (AT)</span><span class="channel-tag">VRT (BE)</span>
@@ -408,13 +402,13 @@ body { font-family: 'Poppins', sans-serif; }
       <div class="footer-col">
         <h4>Quick Links</h4>
         <ul class="footer-links">
+          <li><a class="footer-link" href="features.html">Features</a></li>
           <li><a class="footer-link" href="pricing.html">Plans &amp; Pricing</a></li>
           <li><a class="footer-link" href="channels.html">All Channels</a></li>
           <li><a class="footer-link" href="iptv-sports.html">Sports IPTV</a></li>
           <li><a class="footer-link" href="free-trial.html">Free Trial</a></li>
-          
+          <li><a class="footer-link" href="how-it-works.html">How It Works</a></li>
           <li><a class="footer-link" href="blog/index.html">Blog</a></li>
-          
           <li><a class="footer-link" href="faq.html">FAQ</a></li>
           <li><a class="footer-link" href="support.html">Support</a></li>
         </ul>

@@ -49,8 +49,17 @@ htmlFiles.forEach(file => {
   }
   
   // Convert all blocking stylesheet links to preload (excluding Google Fonts which we handle separately, and inline styles)
-  // Let's match <link rel="stylesheet" href="css/something.css" />
-  const stylesheetRegex = /<link\s+rel=["']stylesheet["']\s+href=["'](css\/[^"']+)["'][^>]*>/gi;
+  // IDEMPOTENT: First, clean up any existing preload+noscript pattern back to a plain stylesheet link,
+  // then re-apply the transformation. This prevents nested noscript corruption from repeated runs.
+  
+  // Step 1: Clean up any existing preload+noscript patterns (including corrupted nested ones)
+  const cleanupRegex = /<link\s+rel="preload"\s+href="(css\/[^"]+)"\s+as="style"\s+onload="this\.onload=null;this\.rel='stylesheet'">\s*(?:<noscript>\s*)*(?:<link\s+rel="(?:preload|stylesheet)"\s+[^>]*>\s*)*(?:<\/noscript>\s*)*/gi;
+  content = content.replace(cleanupRegex, (match, href) => {
+    return `<link rel="stylesheet" href="${href}">`;
+  });
+  
+  // Step 2: Now convert stylesheet links to preload (only those NOT inside noscript tags)
+  const stylesheetRegex = /(?<!<noscript>)<link\s+rel=["']stylesheet["']\s+href=["'](css\/[^"']+)["'][^>]*>/gi;
   content = content.replace(stylesheetRegex, (match, href) => {
     return `<link rel="preload" href="${href}" as="style" onload="this.onload=null;this.rel='stylesheet'">\n  <noscript><link rel="stylesheet" href="${href}"></noscript>`;
   });
@@ -112,7 +121,7 @@ htmlFiles.forEach(file => {
       isAboveTheFold = true;
     }
     // Check if hero image
-    if (imgSplit[i].startsWith('src="assets/images/hero-mockup.png"')) {
+    if (imgSplit[i].startsWith('src="assets/images/hero-mockup.webp"')) {
         isAboveTheFold = true;
     }
 
@@ -124,7 +133,7 @@ htmlFiles.forEach(file => {
         }
     }
     // Image missing width/height heuristic: if it's hero-mockup, width=580 height=380
-    if (imgSplit[i].includes('hero-mockup.png') && !imgSplit[i].includes('width=')) {
+    if (imgSplit[i].includes('hero-mockup.webp') && !imgSplit[i].includes('width=')) {
         imgSplit[i] = 'width="580" height="380" ' + imgSplit[i];
     }
   }
@@ -137,8 +146,8 @@ htmlFiles.forEach(file => {
   }
 
   // Preload hero image if there's a hero image on the page
-  if (content.includes('hero-mockup.png') && !content.includes('rel="preload" as="image" href="assets/images/hero-mockup.png"')) {
-    content = content.replace('</head>', `\n  <link rel="preload" as="image" href="assets/images/hero-mockup.png" />\n</head>`);
+  if (content.includes('hero-mockup.webp') && !content.includes('rel="preload" as="image" href="assets/images/hero-mockup.webp"')) {
+    content = content.replace('</head>', `\n  <link rel="preload" as="image" href="assets/images/hero-mockup.webp" />\n</head>`);
   }
 
   // We write the file back if changes were made

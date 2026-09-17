@@ -5,6 +5,7 @@ const path = require('path');
 const filesToUpdate = [
   'index.html',
   'pricing.html',
+  'features.html',
   'channels.html',
   'iptv-sports.html',
   'free-trial.html',
@@ -27,113 +28,90 @@ filesToUpdate.forEach(fileName => {
   let content = fs.readFileSync(filePath, 'utf8');
   let original = content;
 
-  // 1. GLOBAL REPLACE OF ANY REMAINING blog.html
-  // This handles simple links outside the main structures
-  content = content.replace(/href="blog\.html"/g, 'href="blog/index.html"');
+  // 1. DESKTOP NAVBAR
+  const navLinksRegex = /<ul class="nav-links"[\s\S]*?<\/ul>/;
+  const newNavLinks = `<ul class="nav-links" role="menubar">
+        <li role="none"><a class="nav-link${fileName === 'features.html' ? ' active' : ''}" href="features.html" role="menuitem">Features</a></li>
+        <li role="none"><a class="nav-link${fileName === 'pricing.html' ? ' active' : ''}" href="pricing.html" role="menuitem">Plans</a></li>
+        <li role="none"><a class="nav-link${fileName === 'channels.html' ? ' active' : ''}" href="channels.html" role="menuitem">Channels</a></li>
+        <li role="none"><a class="nav-link${fileName === 'iptv-sports.html' ? ' active' : ''}" href="iptv-sports.html" role="menuitem">Sports</a></li>
+        <li role="none"><a class="nav-link" href="blog/index.html" role="menuitem">Blog</a></li>
+        <li role="none"><a class="nav-link${fileName === 'faq.html' ? ' active' : ''}" href="faq.html" role="menuitem">FAQ</a></li>
+        <li role="none"><a class="nav-link${fileName === 'support.html' ? ' active' : ''}" href="support.html" role="menuitem">Support</a></li>
+      </ul>`;
 
-  // 2. NAVBAR (Desktop) - Ensure Blog link exists and is correct
-  const navLinksMatch = content.match(/<ul class="nav-links"[\s\S]*?<\/ul>/);
-  if (navLinksMatch) {
-    let navLinksHtml = navLinksMatch[0];
-    
-    if (navLinksHtml.includes('href="blog/index.html"')) {
-      // Already has it, but let's make sure it's in the right format
-      // No action needed if it matches
-    } else if (navLinksHtml.includes('href="blog.html"')) {
-      // Should have been handled by global replace, but just in case
-      navLinksHtml = navLinksHtml.replace('href="blog.html"', 'href="blog/index.html"');
-    } else {
-      // MISSING - Insert it
-      const blogLink = '\n          <li role="none"><a class="nav-link" href="blog/index.html" role="menuitem">Blog</a></li>';
-      if (navLinksHtml.includes('href="support.html"')) {
-        navLinksHtml = navLinksHtml.replace(/(<li[\s\S]*?href="support.html")/, `${blogLink}\n          $1`);
-      } else {
-        navLinksHtml = navLinksHtml.replace('</ul>', `${blogLink}\n        </ul>`);
-      }
-    }
-    content = content.replace(navLinksMatch[0], navLinksHtml);
+  if (navLinksRegex.test(content)) {
+    content = content.replace(navLinksRegex, newNavLinks);
+  } else if (content.includes('<div class="nav-actions">')) {
+    content = content.replace('<div class="nav-actions">', `${newNavLinks}\n      <div class="nav-actions">`);
+  } else {
+    console.warn(`Warning: nav-links not found in ${fileName}`);
   }
 
-  // 3. MOBILE MENU - Ensure Blog link exists and is correct
-  const mobileMenuMatch = content.match(/<div id="mobileMenu"[\s\S]*?<\/div>/);
-  if (mobileMenuMatch) {
-    let mobileMenuHtml = mobileMenuMatch[0];
-    
-    if (!mobileMenuHtml.includes('href="blog/index.html"')) {
-      const blogMobileLink = '\n    <a class="mobile-nav-link" href="blog/index.html">Blog</a>';
-      if (mobileMenuHtml.includes('href="support.html"')) {
-        mobileMenuHtml = mobileMenuHtml.replace(/(<a class="mobile-nav-link" href="support.html")/, `${blogMobileLink}\n    $1`);
-      } else {
-        mobileMenuHtml = mobileMenuHtml.replace(/<div class="mobile-menu-actions"/, `${blogMobileLink}\n  <div class="mobile-menu-actions"`);
-      }
-    }
-    content = content.replace(mobileMenuMatch[0], mobileMenuHtml);
+  // 2. NAV ACTIONS
+  const navActionsRegex = /<div class="nav-actions">[\s\S]*?<\/div>/;
+  const newNavActions = `<div class="nav-actions">
+        <a href="free-trial.html" class="btn btn-secondary btn-sm">Free Trial</a>
+        <a href="pricing.html" class="btn btn-primary btn-sm">Get Started</a>
+      </div>`;
+
+  if (navActionsRegex.test(content)) {
+    content = content.replace(navActionsRegex, newNavActions);
   }
 
-  // 4. FOOTER - Ensure Blog link exists and is correct
-  const footerLinksMatch = content.match(/<ul class="footer-links"[\s\S]*?<\/ul>/);
-  if (footerLinksMatch) {
-    let footerLinksHtml = footerLinksMatch[0];
-    if (!footerLinksHtml.includes('href="blog/index.html"')) {
-      const blogFooterLink = '\n          <li><a class="footer-link" href="blog/index.html">Blog</a></li>';
-      if (footerLinksHtml.includes('href="support.html"')) {
-         footerLinksHtml = footerLinksHtml.replace(/(<li><a class="footer-link" href="support.html")/, `${blogFooterLink}\n          $1`);
-      } else {
-         footerLinksHtml = footerLinksHtml.replace('</ul>', `${blogFooterLink}\n        </ul>`);
-      }
-    }
-    content = content.replace(footerLinksMatch[0], footerLinksHtml);
+  // 3. MOBILE MENU
+  const mobileMenuRegex = /<div id="mobileMenu"[\s\S]*?<div class="mobile-menu-actions"[\s\S]*?<\/div>\s*<\/div>/;
+  const newMobileMenu = `<div id="mobileMenu" class="mobile-menu" role="dialog" aria-label="Mobile navigation">
+  <a class="mobile-nav-link${fileName === 'index.html' ? ' active' : ''}" href="index.html">Home</a>
+  <a class="mobile-nav-link${fileName === 'features.html' ? ' active' : ''}" href="features.html">Features</a>
+  <a class="mobile-nav-link${fileName === 'pricing.html' ? ' active' : ''}" href="pricing.html">Plans</a>
+  <a class="mobile-nav-link${fileName === 'channels.html' ? ' active' : ''}" href="channels.html">Channels</a>
+  <a class="mobile-nav-link${fileName === 'iptv-sports.html' ? ' active' : ''}" href="iptv-sports.html">Sports</a>
+  <a class="mobile-nav-link" href="blog/index.html">Blog</a>
+  <a class="mobile-nav-link${fileName === 'faq.html' ? ' active' : ''}" href="faq.html">FAQ</a>
+  <a class="mobile-nav-link${fileName === 'support.html' ? ' active' : ''}" href="support.html">Support</a>
+  <div class="mobile-menu-actions">
+    <a href="free-trial.html" class="btn btn-secondary">Free Trial</a>
+    <a href="pricing.html" class="btn btn-primary">Get Started</a>
+  </div>
+</div>`;
+
+  if (mobileMenuRegex.test(content)) {
+    content = content.replace(mobileMenuRegex, newMobileMenu);
+  } else {
+    console.warn(`Warning: mobileMenu not found in ${fileName}`);
   }
 
-  // 5. NAVBAR (Desktop) - Ensure FAQ link exists
-  const navLinksMatchFaq = content.match(/<ul class="nav-links"[\s\S]*?<\/ul>/);
-  if (navLinksMatchFaq) {
-    let navLinksHtml = navLinksMatchFaq[0];
-    if (!navLinksHtml.includes('href="faq.html"')) {
-      const faqLink = '\n          <li role="none"><a class="nav-link" href="faq.html" role="menuitem">FAQ</a></li>';
-      if (navLinksHtml.includes('href="support.html"')) {
-         navLinksHtml = navLinksHtml.replace(/(<li[\s\S]*?href="support.html")/, `${faqLink}\n          $1`);
-      } else {
-         navLinksHtml = navLinksHtml.replace('</ul>', `${faqLink}\n        </ul>`);
-      }
-    }
-    content = content.replace(navLinksMatchFaq[0], navLinksHtml);
+  // 4. FOOTER QUICK LINKS (where present)
+  const footerQuickLinksRegex = /<div class="footer-col">\s*<h4>Quick Links<\/h4>\s*<ul class="footer-links">[\s\S]*?<\/ul>\s*<\/div>/;
+  const newFooterQuickLinks = `<div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a class="footer-link" href="features.html">Features</a></li>
+          <li><a class="footer-link" href="pricing.html">Plans &amp; Pricing</a></li>
+          <li><a class="footer-link" href="channels.html">All Channels</a></li>
+          <li><a class="footer-link" href="iptv-sports.html">Sports IPTV</a></li>
+          <li><a class="footer-link" href="free-trial.html">Free Trial</a></li>
+          <li><a class="footer-link" href="how-it-works.html">How It Works</a></li>
+          <li><a class="footer-link" href="blog/index.html">Blog</a></li>
+          <li><a class="footer-link" href="faq.html">FAQ</a></li>
+          <li><a class="footer-link" href="support.html">Support</a></li>
+        </ul>
+      </div>`;
+
+  if (footerQuickLinksRegex.test(content)) {
+    content = content.replace(footerQuickLinksRegex, newFooterQuickLinks);
   }
 
-  // 6. MOBILE MENU - Ensure FAQ link exists
-  const mobileMenuMatchFaq = content.match(/<div id="mobileMenu"[\s\S]*?<\/div>/);
-  if (mobileMenuMatchFaq) {
-    let mobileMenuHtml = mobileMenuMatchFaq[0];
-    if (!mobileMenuHtml.includes('href="faq.html"')) {
-      const faqMobileLink = '\n  <a class="mobile-nav-link" href="faq.html">FAQ</a>';
-      if (mobileMenuHtml.includes('href="support.html"')) {
-         mobileMenuHtml = mobileMenuHtml.replace(/(<a class="mobile-nav-link" href="support.html")/, `${faqMobileLink}\n  $1`);
-      } else {
-         mobileMenuHtml = mobileMenuHtml.replace(/<div class="mobile-menu-actions"/, `${faqMobileLink}\n  <div class="mobile-menu-actions"`);
-      }
-    }
-    content = content.replace(mobileMenuMatchFaq[0], mobileMenuHtml);
-  }
-
-  // 7. FOOTER - Ensure FAQ link exists
-  const footerLinksMatchFaq = content.match(/<ul class="footer-links"[\s\S]*?<\/ul>/);
-  if (footerLinksMatchFaq) {
-    let footerLinksHtml = footerLinksMatchFaq[0];
-    if (!footerLinksHtml.includes('href="faq.html"')) {
-      const faqFooterLink = '\n          <li><a class="footer-link" href="faq.html">FAQ</a></li>';
-      if (footerLinksHtml.includes('href="support.html"')) {
-         footerLinksHtml = footerLinksHtml.replace(/(<li><a class="footer-link" href="support.html")/, `${faqFooterLink}\n          $1`);
-      } else {
-         footerLinksHtml = footerLinksHtml.replace('</ul>', `${faqFooterLink}\n        </ul>`);
-      }
-    }
-    content = content.replace(footerLinksMatchFaq[0], footerLinksHtml);
-  }
+  // 5. NAV LOGO LINK (standardize)
+  content = content.replace(/<a href="\/" class="nav-logo"/g, '<a href="index.html" class="nav-logo"');
 
   if (content !== original) {
-    fs.writeFileSync(filePath, content);
-    console.log(`Updated links in ${fileName}`);
+    fs.writeFileSync(filePath, content, 'utf8');
+    console.log(`Updated navigation in ${fileName}`);
+  } else {
+    console.log(`No changes needed in ${fileName}`);
   }
 });
 
-console.log('Final Navigation Synchronize completed.');
+console.log('All root navigation updated successfully.');

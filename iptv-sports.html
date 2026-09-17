@@ -20,11 +20,11 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="IPTV Mate" />
-  <meta property="og:locale" content="en_EU" />
+  <meta property="og:locale" content="en_GB" />
   <meta property="og:title" content="IPTV Sports Europe – Live Premier League, Champions League &amp; F1" />
   <meta property="og:description" content="Watch live sports IPTV across Europe: Premier League, La Liga, Champions League, F1, tennis. No blackouts, 4K quality, all devices." />
   <meta property="og:url" content="https://www.iptvmateeu.com/iptv-sports.html" />
-  <meta property="og:image" content="https://www.iptvmateeu.com/assets/images/hero-mockup.png" />
+  <meta property="og:image" content="https://www.iptvmateeu.com/assets/images/hero-mockup.webp" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Live sports IPTV Europe – Premier League, F1, Champions League" />
@@ -34,7 +34,7 @@
   <meta name="twitter:site" content="@matesupports" />
   <meta name="twitter:title" content="IPTV Sports Europe – Live Premier League, Champions League &amp; F1" />
   <meta name="twitter:description" content="Watch every Premier League match, UEFA Champions League &amp; F1 race live in 4K. No blackouts across Europe." />
-  <meta name="twitter:image" content="https://www.iptvmateeu.com/assets/images/hero-mockup.png" />
+  <meta name="twitter:image" content="https://www.iptvmateeu.com/assets/images/hero-mockup.webp" />
 
   <!-- Schema.org: WebPage + SportsEvent context -->
   <script type="application/ld+json">
@@ -48,11 +48,7 @@
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
   <!-- CSS (minified) -->
   <link rel="preload" href="css/purged-styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="preload" href="css/purged-styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="preload" href="css/purged-styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="preload" href="css/purged-styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="css/purged-styles.min.css"></noscript></noscript></noscript></noscript>
-  <style>
+  <noscript><link rel="stylesheet" href="css/purged-styles.min.css"></noscript><style>
     .sports-hero-badge { display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:var(--r-full);font-size:0.85rem;font-weight:700;color:#ef4444;letter-spacing:0.05em; }
     .league-card { background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--r-lg);padding:var(--sp-24);transition:all var(--transition-base);display:flex;flex-direction:column;gap:var(--sp-16); }
     .league-card:hover{border-color:var(--border-accent);transform:translateY(-4px);box-shadow:var(--shadow-card);}
@@ -110,7 +106,7 @@ body { font-family: 'Poppins', sans-serif; }
 
 
   
-  <link rel="preload" as="image" href="assets/images/hero-mockup.png" />
+  <link rel="preload" as="image" href="assets/images/hero-mockup.webp" />
 </head>
 <body>
 
@@ -120,17 +116,15 @@ body { font-family: 'Poppins', sans-serif; }
     <div class="nav-inner">
       <a href="index.html" class="nav-logo"><img loading="eager" fetchpriority="high" src="/assets/images/logo.png" alt="IPTV Mate Logo" height="48" style="display:block;" width="48"><span style="font-family:var(--font-heading);font-weight:700;font-size:1.5rem;color:#ffffff;white-space:nowrap;margin-left:12px;">IPTV Mate</span></a>
       <ul class="nav-links" role="menubar">
-        
-          <li role="none"><a class="nav-link" href="blog/index.html" role="menuitem">Blog</a></li>
-          <li><a class="nav-link" href="index.html#features">Features</a></li>
-        <li><a class="nav-link" href="pricing.html">Plans</a></li>
-        <li><a class="nav-link" href="channels.html">Channels</a></li>
-        <li><a class="nav-link active" href="iptv-sports.html">Sports</a></li>
-        <li><a class="nav-link" href="faq.html">FAQ</a></li>
-        <li><a class="nav-link" href="support.html">Support</a></li>
+        <li role="none"><a class="nav-link" href="features.html" role="menuitem">Features</a></li>
+        <li role="none"><a class="nav-link" href="pricing.html" role="menuitem">Plans</a></li>
+        <li role="none"><a class="nav-link" href="channels.html" role="menuitem">Channels</a></li>
+        <li role="none"><a class="nav-link active" href="iptv-sports.html" role="menuitem">Sports</a></li>
+        <li role="none"><a class="nav-link" href="blog/index.html" role="menuitem">Blog</a></li>
+        <li role="none"><a class="nav-link" href="faq.html" role="menuitem">FAQ</a></li>
+        <li role="none"><a class="nav-link" href="support.html" role="menuitem">Support</a></li>
       </ul>
       <div class="nav-actions">
-        
         <a href="free-trial.html" class="btn btn-secondary btn-sm">Free Trial</a>
         <a href="pricing.html" class="btn btn-primary btn-sm">Get Started</a>
       </div>
@@ -138,18 +132,18 @@ body { font-family: 'Poppins', sans-serif; }
     </div>
   </div>
 </nav>
-<div id="mobileMenu" class="mobile-menu">
+<div id="mobileMenu" class="mobile-menu" role="dialog" aria-label="Mobile navigation">
   <a class="mobile-nav-link" href="index.html">Home</a>
-  <a class="mobile-nav-link" href="pricing.html">Plans &amp; Pricing</a>
-  <a class="mobile-nav-link" href="channels.html">All Channels</a>
-  <a class="mobile-nav-link" href="iptv-sports.html">Sports</a>
+  <a class="mobile-nav-link" href="features.html">Features</a>
+  <a class="mobile-nav-link" href="pricing.html">Plans</a>
+  <a class="mobile-nav-link" href="channels.html">Channels</a>
+  <a class="mobile-nav-link active" href="iptv-sports.html">Sports</a>
   <a class="mobile-nav-link" href="blog/index.html">Blog</a>
-  
   <a class="mobile-nav-link" href="faq.html">FAQ</a>
   <a class="mobile-nav-link" href="support.html">Support</a>
   <div class="mobile-menu-actions">
-    <a href="free-trial.html" class="btn btn-secondary">Start Free Trial</a>
-    <a href="pricing.html" class="btn btn-primary">View Plans</a>
+    <a href="free-trial.html" class="btn btn-secondary">Free Trial</a>
+    <a href="pricing.html" class="btn btn-primary">Get Started</a>
   </div>
 </div>
 
@@ -192,7 +186,7 @@ body { font-family: 'Poppins', sans-serif; }
     <div class="sports-leagues-grid stagger">
       <div class="league-card fade-in">
         <div class="league-header">
-          <div class="league-icon"><img loading="lazy" src="https://flagcdn.com/gb-eng.svg" width="18" height="13"></div>
+          <div class="league-icon"><img loading="lazy" src="https://flagcdn.com/gb-eng.svg" width="18" height="13" alt="United Kingdom flag"></div>
           <div>
             <h3 style="font-size:1rem;">Premier League IPTV</h3>
             <p style="font-size:0.82rem;color:var(--text-muted);">All 380 matches per season</p>
@@ -207,7 +201,7 @@ body { font-family: 'Poppins', sans-serif; }
       </div>
       <div class="league-card fade-in">
         <div class="league-header">
-          <div class="league-icon"><img loading="lazy" src="https://flagcdn.com/es.svg" width="18" height="13"></div>
+          <div class="league-icon"><img loading="lazy" src="https://flagcdn.com/es.svg" width="18" height="13" alt="Spain flag"></div>
           <div>
             <h3 style="font-size:1rem;">La Liga IPTV</h3>
             <p style="font-size:0.82rem;color:var(--text-muted);">Real Madrid, Barcelona &amp; more</p>
@@ -237,7 +231,7 @@ body { font-family: 'Poppins', sans-serif; }
       </div>
       <div class="league-card fade-in">
         <div class="league-header">
-          <div class="league-icon"><img loading="lazy" src="https://flagcdn.com/de.svg" width="18" height="13"></div>
+          <div class="league-icon"><img loading="lazy" src="https://flagcdn.com/de.svg" width="18" height="13" alt="Germany flag"></div>
           <div>
             <h3 style="font-size:1rem;">Bundesliga IPTV</h3>
             <p style="font-size:0.82rem;color:var(--text-muted);">All 34 matchdays live</p>
@@ -252,7 +246,7 @@ body { font-family: 'Poppins', sans-serif; }
       </div>
       <div class="league-card fade-in">
         <div class="league-header">
-          <div class="league-icon"><img loading="lazy" src="https://flagcdn.com/it.svg" width="18" height="13"></div>
+          <div class="league-icon"><img loading="lazy" src="https://flagcdn.com/it.svg" width="18" height="13" alt="Italy flag"></div>
           <div>
             <h3 style="font-size:1rem;">Serie A IPTV</h3>
             <p style="font-size:0.82rem;color:var(--text-muted);">Juventus, Inter, Milan &amp; more</p>
@@ -267,7 +261,7 @@ body { font-family: 'Poppins', sans-serif; }
       </div>
       <div class="league-card fade-in">
         <div class="league-header">
-          <div class="league-icon"><img loading="lazy" src="https://flagcdn.com/fr.svg" width="18" height="13"></div>
+          <div class="league-icon"><img loading="lazy" src="https://flagcdn.com/fr.svg" width="18" height="13" alt="France flag"></div>
           <div>
             <h3 style="font-size:1rem;">Ligue 1 IPTV</h3>
             <p style="font-size:0.82rem;color:var(--text-muted);">PSG, Monaco, Marseille</p>
@@ -387,7 +381,7 @@ body { font-family: 'Poppins', sans-serif; }
           <p class="testimonial-text">"Watched the entire Champions League final in 4K without a single glitch. My friends couldn't believe it wasn't satellite TV."</p>
           <div class="testimonial-author">
             <div class="author-avatar">MR</div>
-            <div><div class="author-name">Miguel R.</div><div class="author-location"><img loading="lazy" src="https://flagcdn.com/es.svg" width="18" height="13"> Barcelona</div></div>
+            <div><div class="author-name">Miguel R.</div><div class="author-location"><img loading="lazy" src="https://flagcdn.com/es.svg" width="18" height="13" alt="Spain flag"> Barcelona</div></div>
           </div>
         </article>
         <article class="testimonial-card">
@@ -395,7 +389,7 @@ body { font-family: 'Poppins', sans-serif; }
           <p class="testimonial-text">"Followed the entire F1 season live. Every session, every camera angle. IPTV Mate is the only IPTV that works reliably for live sport."</p>
           <div class="testimonial-author">
             <div class="author-avatar">FD</div>
-            <div><div class="author-name">Felix D.</div><div class="author-location"><img loading="lazy" src="https://flagcdn.com/de.svg" width="18" height="13"> Hamburg</div></div>
+            <div><div class="author-name">Felix D.</div><div class="author-location"><img loading="lazy" src="https://flagcdn.com/de.svg" width="18" height="13" alt="Germany flag"> Hamburg</div></div>
           </div>
         </article>
       </div>
@@ -433,13 +427,13 @@ body { font-family: 'Poppins', sans-serif; }
       <div class="footer-col">
         <h4>Quick Links</h4>
         <ul class="footer-links">
+          <li><a class="footer-link" href="features.html">Features</a></li>
           <li><a class="footer-link" href="pricing.html">Plans &amp; Pricing</a></li>
           <li><a class="footer-link" href="channels.html">All Channels</a></li>
           <li><a class="footer-link" href="iptv-sports.html">Sports IPTV</a></li>
           <li><a class="footer-link" href="free-trial.html">Free Trial</a></li>
-          
+          <li><a class="footer-link" href="how-it-works.html">How It Works</a></li>
           <li><a class="footer-link" href="blog/index.html">Blog</a></li>
-          
           <li><a class="footer-link" href="faq.html">FAQ</a></li>
           <li><a class="footer-link" href="support.html">Support</a></li>
         </ul>

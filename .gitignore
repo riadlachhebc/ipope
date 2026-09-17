@@ -1,0 +1,16 @@
+# OS / System
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# IDE & Editors
+.vscode/
+.idea/
+
+# Performance exports & CSVs
+*.csv
+
+# Python cache & scratch
+__pycache__/
+*.pyc
+*.pyo
